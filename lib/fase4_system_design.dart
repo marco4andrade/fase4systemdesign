@@ -1,5 +1,19 @@
-/// A Calculator.
-class Calculator {
-  /// Returns [value] plus 1.
-  int addOne(int value) => value + 1;
-}
+library fase4_system_design;
+
+// `Pragma4DesignSystem`.
+export 'src/theme/pragma4_design_system.dart';
+
+// Atoms
+export 'src/atoms/atoms.dart';
+
+// Molecules
+export 'src/molecules/molecules.dart';
+
+// Organisms
+export 'src/organisms/organisms.dart';
+
+// Templates
+export 'src/templates/templates.dart';
+
+// Pages - Páginas reutilizables
+export 'src/pages/pages.dart';

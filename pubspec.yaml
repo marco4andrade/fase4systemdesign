@@ -1,7 +1,7 @@
 name: fase4_system_design
-description: "A new Flutter package project."
+description: "A comprehensive Flutter design system package based on Atomic Design principles."
 version: 0.0.1
-homepage:
+homepage: https://github.com/marco4andrade/fase4systemdesign
 
 environment:
   sdk: ^3.9.2
