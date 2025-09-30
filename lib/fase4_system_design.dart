@@ -1,4 +1,3 @@
-library fase4_system_design;
 
 // `Pragma4DesignSystem`.
 export 'src/theme/pragma4_design_system.dart';
