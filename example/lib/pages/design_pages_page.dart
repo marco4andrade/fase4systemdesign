@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fase4_system_design/fase4_system_design.dart';
+import '../widgets/page_example.dart';
 
 /// Showcase para el nivel de Páginas reutilizables
 class DesignPagesPage extends StatelessWidget {
@@ -22,28 +23,29 @@ class DesignPagesPage extends StatelessWidget {
             variant: Pragma4TextVariant.bodyLarge,
           ),
           const SizedBox(height: 32),
-          _buildPageExample(
+                    const SizedBox(height: 32),
+          PageExample(
             title: 'LoginPage',
             description: 'Página de inicio de sesión lista para usar.',
             preview: SizedBox(
               height: 320,
               child: LoginPage(
-                title: 'Iniciar Sesión',
-                subtitle: 'Accede a tu cuenta',
-                onLogin: (e, p, r) {},
+                title: 'Mi App',
+                subtitle: 'Inicia sesión en tu cuenta',
+                onLogin: (email, password, rememberMe) {},
                 onForgotPassword: () {},
                 onSignUp: () {},
               ),
             ),
           ),
-          _buildPageExample(
+          PageExample(
             title: 'SimpleDashboardPage',
-            description: 'Panel simple con métricas y contenido configurable.',
+            description: 'Dashboard básico con métricas y contenido personalizable.',
             preview: SizedBox(
-              height: 360,
+              height: 320,
               child: SimpleDashboardPage(
-                title: 'Mi Panel',
-                subtitle: 'Resumen general',
+                title: 'Dashboard',
+                subtitle: 'Vista general de métricas',
                 metrics: const [
                   SimpleDashboardMetric(
                     title: 'Usuarios',
@@ -56,36 +58,15 @@ class DesignPagesPage extends StatelessWidget {
                     icon: Icons.attach_money,
                   ),
                 ],
-                children: const [
-                  Pragma4CardComponent(
-                    title: 'Actividad',
-                    content: Pragma4BodyText('Sin eventos recientes'),
-                  ),
-                ],
                 onMenuTap: () {},
                 onNotificationTap: () {},
+                children: const [
+                  Text('Contenido del dashboard aquí'),
+                ],
               ),
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildPageExample({
-    required String title,
-    required String description,
-    required Widget preview,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 32),
-      child: Pragma4CardComponent(
-        title: title,
-        subtitle: description,
-        content: ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Material(color: Colors.green, child: preview),
-        ),
       ),
     );
   }

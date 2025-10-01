@@ -1,5 +1,6 @@
 import 'package:fase4_system_design/fase4_system_design.dart';
 import 'package:flutter/material.dart';
+import '../widgets/design_level_card.dart';
 
 import 'atoms_page.dart';
 import 'molecules_page.dart';
@@ -170,47 +171,31 @@ class OverviewPage extends StatelessWidget {
             variant: Pragma4TextVariant.headlineLarge,
           ),
           const SizedBox(height: 16),
-          _buildDesignLevelCard(
-            'Átomos',
-            'Bloques de construcción básicos como botones, campos de entrada y texto',
-            Icons.settings,
-            colorScheme.primary,
+          DesignLevelCard(
+            title: 'Átomos',
+            description: 'Bloques de construcción básicos como botones, campos de entrada y texto',
+            icon: Icons.settings,
+            color: colorScheme.primary,
           ),
-          _buildDesignLevelCard(
-            'Moléculas',
-            'Combinaciones simples de átomos trabajando juntos',
-            Icons.category,
-            colorScheme.secondary,
+          DesignLevelCard(
+            title: 'Moléculas',
+            description: 'Combinaciones simples de átomos trabajando juntos',
+            icon: Icons.category,
+            color: colorScheme.secondary,
           ),
-          _buildDesignLevelCard(
-            'Organismos',
-            'Componentes de UI complejos construidos a partir de moléculas y átomos',
-            Icons.widgets,
-            colorScheme.secondary,
+          DesignLevelCard(
+            title: 'Organismos',
+            description: 'Componentes de UI complejos construidos a partir de moléculas y átomos',
+            icon: Icons.widgets,
+            color: colorScheme.secondary,
           ),
-          _buildDesignLevelCard(
-            'Plantillas',
-            'Diseños de página que proporcionan estructura para el contenido',
-            Icons.view_module,
-            colorScheme.primary,
+          DesignLevelCard(
+            title: 'Plantillas',
+            description: 'Diseños de página que proporcionan estructura para el contenido',
+            icon: Icons.view_module,
+            color: colorScheme.primary,
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildDesignLevelCard(
-    String title,
-    String description,
-    IconData icon,
-    Color color,
-  ) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 16),
-      child: Pragma4CardComponent(
-        leading: Pragma4Icon(icon, color: color, size: Pragma4IconSize.large),
-        title: title,
-        subtitle: description,
       ),
     );
   }

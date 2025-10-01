@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fase4_system_design/fase4_system_design.dart';
-import 'pages_example.dart';
+import 'routes/app_routes.dart';
 
 
 ///
@@ -26,21 +26,10 @@ class DesignSystemApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Muestra del Sistema de Diseño',
         themeMode: ThemeMode.light,
-        home: const PagesExamplePageWithHome(),
+        initialRoute: AppRoutes.home,
+        routes: AppRoutes.routes,
         debugShowCheckedModeBanner: false,
       ),
-    );
-  }
-}
-
-class PagesExamplePageWithHome extends StatelessWidget {
-  const PagesExamplePageWithHome({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-      body: const PagesExamplePage(),
     );
   }
 }

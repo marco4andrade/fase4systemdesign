@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fase4_system_design/fase4_system_design.dart' as design;
+import '../widgets/template_section.dart';
 
 /// Página de showcase para Plantillas (Templates)
 class TemplatesPage extends StatelessWidget {
@@ -22,7 +23,7 @@ class TemplatesPage extends StatelessWidget {
             variant: design.Pragma4TextVariant.bodyLarge,
           ),
           const SizedBox(height: 32),
-          _buildTemplateSection(
+          TemplateSection(
             title: 'AppLayout',
             description:
                 'Layout base con appBar, drawer, body y zonas configurables.',
@@ -36,7 +37,7 @@ class TemplatesPage extends StatelessWidget {
               ),
             ),
           ),
-          _buildTemplateSection(
+          TemplateSection(
             title: 'DashboardTemplate',
             description: 'Plantilla para tableros con métricas y contenido.',
             child: SizedBox(
@@ -71,7 +72,7 @@ class TemplatesPage extends StatelessWidget {
               ),
             ),
           ),
-          _buildTemplateSection(
+          TemplateSection(
             title: 'FormTemplate',
             description: 'Estructura para páginas con formularios.',
             child: SizedBox(
@@ -93,7 +94,7 @@ class TemplatesPage extends StatelessWidget {
               ),
             ),
           ),
-          _buildTemplateSection(
+          TemplateSection(
             title: 'ListTemplate',
             description: 'Composición para listas con búsqueda y filtros.',
             child: SizedBox(
@@ -128,24 +129,6 @@ class TemplatesPage extends StatelessWidget {
             ),
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildTemplateSection({
-    required String title,
-    required String description,
-    required Widget child,
-  }) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: 32),
-      child: design.Pragma4CardComponent(
-        title: title,
-        subtitle: description,
-        content: ClipRRect(
-          borderRadius: BorderRadius.circular(8),
-          child: Material(color: Colors.green, child: child),
-        ),
       ),
     );
   }
