@@ -10,7 +10,7 @@ class DashboardExamplePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SimpleDashboardPage(
       title: 'Mi Dashboard',
-      subtitle: 'Ejemplo de dashboard reutilizable',
+      subtitle: 'Ejemplo de dashboard reutilizasssble',
       metrics: const [
         SimpleDashboardMetric(
           title: 'Usuarios',

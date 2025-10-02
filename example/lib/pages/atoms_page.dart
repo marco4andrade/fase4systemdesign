@@ -85,9 +85,48 @@ class AtomsPage extends StatelessWidget {
           ComponentSection(
             title: 'Etiquetas',
             children: [
+              // Badges de texto
               Pragma4Badge(text: 'Nuevo'),
               Pragma4Badge(text: 'Éxito', variant: Pragma4ComponentVariant.primary),
               Pragma4Badge(text: 'Error', variant: Pragma4ComponentVariant.danger),
+              
+              const SizedBox(height: 16),
+              
+              // Badges de punto (dot badges)
+              Row(
+                children: [
+                  const Pragma4Text('Notificaciones: ', variant: Pragma4TextType.bodyMedium),
+                  const SizedBox(width: 8),
+                  const Pragma4DotBadge(variant: Pragma4ComponentVariant.danger),
+                  const SizedBox(width: 16),
+                  const Pragma4Text('En línea: ', variant: Pragma4TextType.bodyMedium),
+                  const SizedBox(width: 8),
+                  const Pragma4DotBadge(variant: Pragma4ComponentVariant.success),
+                  const SizedBox(width: 16),
+                  const Pragma4Text('Pendiente: ', variant: Pragma4TextType.bodyMedium),
+                  const SizedBox(width: 8),
+                  const Pragma4DotBadge(variant: Pragma4ComponentVariant.warning),
+                ],
+              ),
+              
+              const SizedBox(height: 16),
+              
+              // Badges numéricos
+              Row(
+                children: [
+                  const Pragma4Text('Mensajes: ', variant: Pragma4TextType.bodyMedium),
+                  const SizedBox(width: 8),
+                  const Pragma4NumberBadge(count: 5),
+                  const SizedBox(width: 16),
+                  const Pragma4Text('Notificaciones: ', variant: Pragma4TextType.bodyMedium),
+                  const SizedBox(width: 8),
+                  const Pragma4NumberBadge(count: 99),
+                  const SizedBox(width: 16),
+                  const Pragma4Text('Muchas: ', variant: Pragma4TextType.bodyMedium),
+                  const SizedBox(width: 8),
+                  const Pragma4NumberBadge(count: 150, maxCount: 99),
+                ],
+              ),
             ],
           ),
         ],

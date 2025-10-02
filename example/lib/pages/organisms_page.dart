@@ -12,7 +12,7 @@ class OrganismsPage extends StatelessWidget {
     return SingleChildScrollView(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: const [
+        children: [
           Pragma4Text(
             'Organismos',
             variant: Pragma4TextType.displayMedium,
@@ -27,25 +27,34 @@ class OrganismsPage extends StatelessWidget {
             title: 'Estadísticas del Dashboard',
             children: [
               Pragma4DashboardStats(
-                crossAxisCount: 2,
                 stats: [
                   Pragma4StatCard(
                     title: 'Ventas Totales',
                     value: '\$12,345',
-                    trend: Pragma4StatTrend(
-                      percentage: '+12%',
-                      isPositive: true,
-                    ),
+                    subtitle: '+12% vs mes anterior',
+                    trend: Pragma4StatTrend.up,
                     icon: Icons.trending_up,
                   ),
                   Pragma4StatCard(
                     title: 'Nuevos Usuarios',
                     value: '1,234',
-                    trend: Pragma4StatTrend(
-                      percentage: '+5%',
-                      isPositive: true,
-                    ),
+                    subtitle: '+5% este mes',
+                    trend: Pragma4StatTrend.up,
                     icon: Icons.people,
+                  ),
+                  Pragma4StatCard(
+                    title: 'Ingresos',
+                    value: '\$5,678',
+                    subtitle: '-2% vs promedio',
+                    trend: Pragma4StatTrend.down,
+                    icon: Icons.attach_money,
+                  ),
+                  Pragma4StatCard(
+                    title: 'Conversiones',
+                    value: '89%',
+                    subtitle: 'Sin cambios',
+                    trend: Pragma4StatTrend.neutral,
+                    icon: Icons.track_changes,
                   ),
                 ],
               ),
@@ -93,17 +102,17 @@ class OrganismsPage extends StatelessWidget {
               ),
             ],
           ),
-          DrawerDemoSection(),
+          const DrawerDemoSection(),
           SectionWidget(
             title: 'Tabla de Datos',
             children: [
               Pragma4DataTable(
-                columns: [
+                columns: const [
                   DataColumn(label: Pragma4Text('ID')),
                   DataColumn(label: Pragma4Text('Nombre')),
                   DataColumn(label: Pragma4Text('Precio')),
                 ],
-                rows: [
+                rows: const [
                   DataRow(
                     cells: [
                       DataCell(Pragma4Text('1')),
