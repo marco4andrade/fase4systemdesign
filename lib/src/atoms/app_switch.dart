@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
-
-/// Tamaños del interruptor
-enum Pragma4SwitchSize { small, medium, large }
+import '../enums/enums.dart';
 
 /// Componente de interruptor atómico para valores booleanos
 class Pragma4Switch extends StatelessWidget {
@@ -10,7 +8,7 @@ class Pragma4Switch extends StatelessWidget {
     super.key,
     required this.value,
     required this.onChanged,
-    this.size = Pragma4SwitchSize.medium,
+    this.size = Pragma4ComponentSize.medium,
     this.activeColor,
     this.inactiveColor,
     this.thumbColor,
@@ -19,7 +17,7 @@ class Pragma4Switch extends StatelessWidget {
 
   final bool value;
   final ValueChanged<bool>? onChanged;
-  final Pragma4SwitchSize size;
+  final Pragma4ComponentSize size;
   final Color? activeColor;
   final Color? inactiveColor;
   final Color? thumbColor;
@@ -61,11 +59,12 @@ class Pragma4Switch extends StatelessWidget {
 
   double _getScale() {
     switch (size) {
-      case Pragma4SwitchSize.small:
+      case Pragma4ComponentSize.small:
         return 0.8;
-      case Pragma4SwitchSize.medium:
+      case Pragma4ComponentSize.medium:
         return 1.0;
-      case Pragma4SwitchSize.large:
+      case Pragma4ComponentSize.large:
+      case Pragma4ComponentSize.xlarge:
         return 1.2;
     }
   }

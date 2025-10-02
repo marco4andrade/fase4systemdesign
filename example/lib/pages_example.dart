@@ -42,7 +42,7 @@ class _PagesExamplePageState extends State<PagesExamplePage> {
               const Center(
                 child: Pragma4HeadlineText(
                   'Sistema de Diseño Flutter',
-                  variant: Pragma4TextVariant.headlineLarge,
+                  variant: Pragma4TextType.headlineLarge,
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -57,7 +57,7 @@ class _PagesExamplePageState extends State<PagesExamplePage> {
               const SizedBox(height: 32),
               const Pragma4HeadlineText(
                 'Páginas Reutilizables',
-                variant: Pragma4TextVariant.headlineMedium,
+                variant: Pragma4TextType.headlineMedium,
               ),
               const SizedBox(height: 8),
               Pragma4BodyText(
@@ -82,7 +82,7 @@ class _PagesExamplePageState extends State<PagesExamplePage> {
               const SizedBox(height: 24),
               const Pragma4HeadlineText(
                 'Páginas de Demostración',
-                variant: Pragma4TextVariant.headlineSmall,
+                variant: Pragma4TextType.headlineSmall,
               ),
               const SizedBox(height: 8),
               Pragma4BodyText(
@@ -148,7 +148,7 @@ class _PagesExamplePageState extends State<PagesExamplePage> {
         ),
         title: const Pragma4HeadlineText(
           'Página de Login',
-          variant: Pragma4TextVariant.headlineSmall,
+          variant: Pragma4TextType.headlineSmall,
         ),
       ),
       body: LoginPage(
@@ -239,7 +239,7 @@ class _PagesExamplePageState extends State<PagesExamplePage> {
         ),
         title: const Pragma4HeadlineText(
           'Showcase del Sistema',
-          variant: Pragma4TextVariant.headlineSmall,
+          variant: Pragma4TextType.headlineSmall,
         ),
       ),
       body: const ShowcasePage(),

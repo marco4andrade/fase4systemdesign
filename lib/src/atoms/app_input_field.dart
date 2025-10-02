@@ -2,12 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_typography.dart';
-
-/// Variantes de campo de entrada
-enum Pragma4InputVariant { outlined, filled, underlined }
-
-/// Tamaños de campo de entrada
-enum Pragma4InputSize { small, medium, large }
+import '../enums/enums.dart';
 
 /// Componente de campo de entrada atómico
 class Pragma4InputField extends StatefulWidget {
@@ -31,8 +26,8 @@ class Pragma4InputField extends StatefulWidget {
     this.keyboardType,
     this.textInputAction,
     this.inputFormatters,
-    this.variant = Pragma4InputVariant.outlined,
-    this.size = Pragma4InputSize.medium,
+    this.variant = Pragma4ComponentVariant.outlined,
+    this.size = Pragma4ComponentSize.medium,
     this.focusNode,
     this.autofocus = false,
   });
@@ -55,8 +50,8 @@ class Pragma4InputField extends StatefulWidget {
   final TextInputType? keyboardType;
   final TextInputAction? textInputAction;
   final List<TextInputFormatter>? inputFormatters;
-  final Pragma4InputVariant variant;
-  final Pragma4InputSize size;
+  final Pragma4ComponentVariant variant;
+  final Pragma4ComponentSize size;
   final FocusNode? focusNode;
   final bool autofocus;
 
@@ -117,8 +112,8 @@ class _Pragma4InputFieldState extends State<Pragma4InputField> {
       hintStyle: _getHintStyle(),
       prefixIcon: widget.prefixIcon,
       suffixIcon: _buildSuffixIcon(),
-      filled: widget.variant == Pragma4InputVariant.filled,
-      fillColor: widget.variant == Pragma4InputVariant.filled
+      filled: widget.variant == Pragma4ComponentVariant.filled,
+      fillColor: widget.variant == Pragma4ComponentVariant.filled
           ? Pragma4Colors.surfaceVariant
           : null,
       contentPadding: _getContentPadding(),
@@ -150,119 +145,130 @@ class _Pragma4InputFieldState extends State<Pragma4InputField> {
   }
 
   EdgeInsets _getContentPadding() {
-    switch (widget.size) {
-      case Pragma4InputSize.small:
-        return const EdgeInsets.symmetric(
-          horizontal: 8.0,
-          vertical: 4.0,
-        );
-      case Pragma4InputSize.medium:
-        return const EdgeInsets.symmetric(
-          horizontal: 16.0,
-          vertical: 8.0,
-        );
-      case Pragma4InputSize.large:
-        return const EdgeInsets.symmetric(
-          horizontal: 24.0,
-          vertical: 16.0,
-        );
-    }
+    return EdgeInsets.symmetric(
+      horizontal: widget.size.buttonPadding,
+      vertical: widget.size.buttonPadding / 2,
+    );
   }
 
   InputBorder _getBorder() {
     switch (widget.variant) {
-      case Pragma4InputVariant.outlined:
+      case Pragma4ComponentVariant.outlined:
         return OutlineInputBorder(
           borderRadius: BorderRadius.circular(_getBorderRadius()),
           borderSide: const BorderSide(color: Pragma4Colors.grey300),
         );
-      case Pragma4InputVariant.filled:
+      case Pragma4ComponentVariant.filled:
         return OutlineInputBorder(
           borderRadius: BorderRadius.circular(_getBorderRadius()),
           borderSide: BorderSide.none,
         );
-      case Pragma4InputVariant.underlined:
+      case Pragma4ComponentVariant.underlined:
         return const UnderlineInputBorder(
           borderSide: BorderSide(color: Pragma4Colors.grey300),
+        );
+      default:
+        return OutlineInputBorder(
+          borderRadius: BorderRadius.circular(_getBorderRadius()),
+          borderSide: const BorderSide(color: Pragma4Colors.grey300),
         );
     }
   }
 
   InputBorder _getFocusedBorder() {
     switch (widget.variant) {
-      case Pragma4InputVariant.outlined:
+      case Pragma4ComponentVariant.outlined:
         return OutlineInputBorder(
           borderRadius: BorderRadius.circular(_getBorderRadius()),
           borderSide: const BorderSide(color: Pragma4Colors.primary, width: 2),
         );
-      case Pragma4InputVariant.filled:
+      case Pragma4ComponentVariant.filled:
         return OutlineInputBorder(
           borderRadius: BorderRadius.circular(_getBorderRadius()),
           borderSide: const BorderSide(color: Pragma4Colors.primary, width: 2),
         );
-      case Pragma4InputVariant.underlined:
+      case Pragma4ComponentVariant.underlined:
         return const UnderlineInputBorder(
           borderSide: BorderSide(color: Pragma4Colors.primary, width: 2),
+        );
+      default:
+        return OutlineInputBorder(
+          borderRadius: BorderRadius.circular(_getBorderRadius()),
+          borderSide: const BorderSide(color: Pragma4Colors.primary, width: 2),
         );
     }
   }
 
   InputBorder _getErrorBorder() {
     switch (widget.variant) {
-      case Pragma4InputVariant.outlined:
+      case Pragma4ComponentVariant.outlined:
         return OutlineInputBorder(
           borderRadius: BorderRadius.circular(_getBorderRadius()),
           borderSide: const BorderSide(color: Pragma4Colors.error),
         );
-      case Pragma4InputVariant.filled:
+      case Pragma4ComponentVariant.filled:
         return OutlineInputBorder(
           borderRadius: BorderRadius.circular(_getBorderRadius()),
           borderSide: const BorderSide(color: Pragma4Colors.error),
         );
-      case Pragma4InputVariant.underlined:
+      case Pragma4ComponentVariant.underlined:
         return const UnderlineInputBorder(
           borderSide: BorderSide(color: Pragma4Colors.error),
+        );
+      default:
+        return OutlineInputBorder(
+          borderRadius: BorderRadius.circular(_getBorderRadius()),
+          borderSide: const BorderSide(color: Pragma4Colors.error),
         );
     }
   }
 
   InputBorder _getDisabledBorder() {
     switch (widget.variant) {
-      case Pragma4InputVariant.outlined:
+      case Pragma4ComponentVariant.outlined:
         return OutlineInputBorder(
           borderRadius: BorderRadius.circular(_getBorderRadius()),
           borderSide: const BorderSide(color: Pragma4Colors.grey200),
         );
-      case Pragma4InputVariant.filled:
+      case Pragma4ComponentVariant.filled:
         return OutlineInputBorder(
           borderRadius: BorderRadius.circular(_getBorderRadius()),
           borderSide: BorderSide.none,
         );
-      case Pragma4InputVariant.underlined:
+      case Pragma4ComponentVariant.underlined:
         return const UnderlineInputBorder(
           borderSide: BorderSide(color: Pragma4Colors.grey200),
+        );
+      default:
+        return OutlineInputBorder(
+          borderRadius: BorderRadius.circular(_getBorderRadius()),
+          borderSide: const BorderSide(color: Pragma4Colors.grey200),
         );
     }
   }
 
   double _getBorderRadius() {
     switch (widget.size) {
-      case Pragma4InputSize.small:
+      case Pragma4ComponentSize.small:
         return 4.0;
-      case Pragma4InputSize.medium:
+      case Pragma4ComponentSize.medium:
         return 8.0;
-      case Pragma4InputSize.large:
+      case Pragma4ComponentSize.large:
         return 12.0;
+      case Pragma4ComponentSize.xlarge:
+        return 16.0;
     }
   }
 
   TextStyle _getTextStyle() {
     switch (widget.size) {
-      case Pragma4InputSize.small:
+      case Pragma4ComponentSize.small:
         return Pragma4Typography.bodySmall;
-      case Pragma4InputSize.medium:
+      case Pragma4ComponentSize.medium:
         return Pragma4Typography.bodyMedium;
-      case Pragma4InputSize.large:
+      case Pragma4ComponentSize.large:
+        return Pragma4Typography.bodyLarge;
+      case Pragma4ComponentSize.xlarge:
         return Pragma4Typography.bodyLarge;
     }
   }
@@ -287,13 +293,6 @@ class _Pragma4InputFieldState extends State<Pragma4InputField> {
   }
 
   double _getIconSize() {
-    switch (widget.size) {
-      case Pragma4InputSize.small:
-        return 16;
-      case Pragma4InputSize.medium:
-        return 20;
-      case Pragma4InputSize.large:
-        return 24;
-    }
+    return widget.size.iconSize;
   }
 }

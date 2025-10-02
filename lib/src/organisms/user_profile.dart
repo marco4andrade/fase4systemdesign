@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../atoms/atoms.dart';
 import '../molecules/molecules.dart';
+import '../enums/enums.dart';
 
 /// Organismo de perfil de usuario
 class Pragma4UserProfile extends StatelessWidget {
@@ -28,7 +29,7 @@ class Pragma4UserProfile extends StatelessWidget {
               Pragma4Avatar(
                 imageUrl: user.avatarUrl,
                 initials: user.name.isNotEmpty ? user.name[0] : '?',
-                size: Pragma4AvatarSize.large,
+                size: Pragma4ComponentSize.large,
               ),
               const SizedBox(width: 16.0),
               Expanded(
@@ -37,22 +38,22 @@ class Pragma4UserProfile extends StatelessWidget {
                   children: [
                     Pragma4Text(
                       user.name,
-                      variant: Pragma4TextVariant.headlineMedium,
+                      variant: Pragma4TextType.headlineMedium,
                     ),
                     if (user.title != null) ...[
                       const SizedBox(height: 4.0),
                       Pragma4Text(
                         user.title!,
-                        variant: Pragma4TextVariant.bodyMedium,
-                        semanticColor: Pragma4TextColor.tertiary,
+                        variant: Pragma4TextType.bodyMedium,
+                        semanticColor: Pragma4ComponentColor.muted,
                       ),
                     ],
                     if (user.email != null) ...[
                       const SizedBox(height: 4.0),
                       Pragma4Text(
                         user.email!,
-                        variant: Pragma4TextVariant.bodySmall,
-                        semanticColor: Pragma4TextColor.tertiary,
+                        variant: Pragma4TextType.bodySmall,
+                        semanticColor: Pragma4ComponentColor.muted,
                       ),
                     ],
                   ],
@@ -62,7 +63,7 @@ class Pragma4UserProfile extends StatelessWidget {
           ),
           if (user.bio != null) ...[
             const SizedBox(height: 16.0),
-            Pragma4Text(user.bio!, variant: Pragma4TextVariant.bodyMedium),
+            Pragma4Text(user.bio!, variant: Pragma4TextType.bodyMedium),
           ],
           if (showActions && (onEdit != null || onMessage != null)) ...[
             const SizedBox(height: 24.0),
@@ -72,7 +73,7 @@ class Pragma4UserProfile extends StatelessWidget {
                   Pragma4Button(
                     text: 'Editar perfil',
                     onPressed: onEdit,
-                    variant: Pragma4ButtonVariant.outline,
+                    variant: Pragma4ComponentVariant.outline,
                   ),
                 if (onMessage != null)
                   Pragma4Button(text: 'Mensaje', onPressed: onMessage),

@@ -2,6 +2,9 @@
 // `Pragma4DesignSystem`.
 export 'src/theme/pragma4_design_system.dart';
 
+// Enums - Enumeraciones generales del sistema
+export 'src/enums/enums.dart';
+
 // Atoms
 export 'src/atoms/atoms.dart';
 

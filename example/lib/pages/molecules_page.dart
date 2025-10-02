@@ -15,12 +15,12 @@ class MoleculesPage extends StatelessWidget {
         children: [
           const Pragma4Text(
             'Moléculas',
-            variant: Pragma4TextVariant.displayMedium,
+            variant: Pragma4TextType.displayMedium,
           ),
           const SizedBox(height: 16),
           const Pragma4Text(
             'Componentes construidos a partir de átomos trabajando juntos',
-            variant: Pragma4TextVariant.bodyLarge,
+            variant: Pragma4TextType.bodyLarge,
           ),
           const SizedBox(height: 32),
 
@@ -84,7 +84,7 @@ class MoleculesPage extends StatelessWidget {
                       alignment: Alignment.bottomLeft,
                       child: Pragma4Text(
                         'Título sobre imagen',
-                        variant: Pragma4TextVariant.headlineSmall,
+                        variant: Pragma4TextType.headlineSmall,
                         color: Colors.white,
                       ),
                     ),

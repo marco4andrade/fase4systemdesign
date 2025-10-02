@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../atoms/atoms.dart';
+import '../enums/enums.dart';
 
 /// Encabezado de la aplicación con navegación y acciones
 class Pragma4AppHeader extends StatelessWidget implements PreferredSizeWidget {
@@ -34,17 +35,17 @@ class Pragma4AppHeader extends StatelessWidget implements PreferredSizeWidget {
                 if (title != null)
                   Pragma4Text(
                     title!,
-                    variant: Pragma4TextVariant.headlineMedium,
+                    variant: Pragma4TextType.headlineMedium,
                   ),
                 Pragma4Text(
                   subtitle!,
-                  variant: Pragma4TextVariant.bodySmall,
-                  semanticColor: Pragma4TextColor.tertiary,
+                  variant: Pragma4TextType.bodySmall,
+                  semanticColor: Pragma4ComponentColor.muted,
                 ),
               ],
             )
           : title != null
-          ? Pragma4Text(title!, variant: Pragma4TextVariant.headlineMedium)
+          ? Pragma4Text(title!, variant: Pragma4TextType.headlineMedium)
           : null,
       leading:
           leading ??

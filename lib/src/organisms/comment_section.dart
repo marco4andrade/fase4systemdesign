@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../atoms/atoms.dart';
+import '../enums/enums.dart';
 
 /// Organismo de sección de comentarios
 class Pragma4CommentSection extends StatelessWidget {
@@ -21,7 +22,7 @@ class Pragma4CommentSection extends StatelessWidget {
       children: [
         Pragma4Text(
           'Comentarios (${comments.length})',
-          variant: Pragma4TextVariant.headlineSmall,
+          variant: Pragma4TextType.headlineSmall,
         ),
         const SizedBox(height: 16.0),
         if (showAddComment && onAddComment != null) ...[
@@ -53,7 +54,7 @@ class _CommentItem extends StatelessWidget {
         Pragma4Avatar(
           imageUrl: comment.authorAvatar,
           initials: comment.authorName.isNotEmpty ? comment.authorName[0] : '?',
-          size: Pragma4AvatarSize.small,
+          size: Pragma4ComponentSize.small,
         ),
         const SizedBox(width: 8.0),
         Expanded(
@@ -64,20 +65,20 @@ class _CommentItem extends StatelessWidget {
                 children: [
                   Pragma4Text(
                     comment.authorName,
-                    variant: Pragma4TextVariant.labelMedium,
+                    variant: Pragma4TextType.labelMedium,
                   ),
                   const SizedBox(width: 8.0),
                   Pragma4Text(
                     comment.timeAgo,
-                    variant: Pragma4TextVariant.bodySmall,
-                    semanticColor: Pragma4TextColor.tertiary,
+                    variant: Pragma4TextType.bodySmall,
+                    semanticColor: Pragma4ComponentColor.muted,
                   ),
                 ],
               ),
               const SizedBox(height: 4.0),
               Pragma4Text(
                 comment.content,
-                variant: Pragma4TextVariant.bodyMedium,
+                variant: Pragma4TextType.bodyMedium,
               ),
             ],
           ),
@@ -122,7 +123,7 @@ class _AddCommentFieldState extends State<_AddCommentField> {
         Pragma4Button(
           text: 'Publicar',
           onPressed: _handleSubmit,
-          size: Pragma4ButtonSize.small,
+          size: Pragma4ComponentSize.small,
         ),
       ],
     );

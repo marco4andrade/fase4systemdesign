@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../atoms/atoms.dart';
 import 'card_component.dart';
 import '../theme/app_colors.dart';
+import '../enums/enums.dart';
 
 /// Molécula de tarjeta de estadísticas para mostrar métricas
 class Pragma4StatCard extends StatelessWidget {
@@ -35,20 +36,20 @@ class Pragma4StatCard extends StatelessWidget {
               Expanded(
                 child: Pragma4Text(
                   title,
-                  variant: Pragma4TextVariant.labelMedium,
-                  semanticColor: Pragma4TextColor.tertiary,
+                  variant: Pragma4TextType.labelMedium,
+                  semanticColor: Pragma4ComponentColor.muted,
                 ),
               ),
               if (icon != null)
                 Pragma4Icon(
                   icon!,
-                  size: Pragma4IconSize.small,
+                  size: Pragma4ComponentSize.small,
                   semanticColor: Pragma4Colors.onSurfaceVariant,
                 ),
             ],
           ),
           const SizedBox(height: 8.0),
-          Pragma4Text(value, variant: Pragma4TextVariant.displaySmall),
+          Pragma4Text(value, variant: Pragma4TextType.displaySmall),
           if (subtitle != null || trend != null) ...[
             const SizedBox(height: 4.0),
             Row(
@@ -56,7 +57,7 @@ class Pragma4StatCard extends StatelessWidget {
                 if (trend != null) ...[
                   Pragma4Icon(
                     trend!.isPositive ? Icons.trending_up : Icons.trending_down,
-                    size: Pragma4IconSize.small,
+                    size: Pragma4ComponentSize.small,
                     semanticColor: trend!.isPositive
                         ? Pragma4Colors.success
                         : Pragma4Colors.error,
@@ -64,10 +65,10 @@ class Pragma4StatCard extends StatelessWidget {
                   const SizedBox(width: 4.0),
                   Pragma4Text(
                     trend!.percentage,
-                    variant: Pragma4TextVariant.labelSmall,
+                    variant: Pragma4TextType.labelSmall,
                     semanticColor: trend!.isPositive
-                        ? Pragma4TextColor.success
-                        : Pragma4TextColor.error,
+                        ? Pragma4ComponentColor.success
+                        : Pragma4ComponentColor.danger,
                   ),
                   if (subtitle != null) const SizedBox(width: 8.0),
                 ],
@@ -75,8 +76,8 @@ class Pragma4StatCard extends StatelessWidget {
                   Expanded(
                     child: Pragma4Text(
                       subtitle!,
-                      variant: Pragma4TextVariant.bodySmall,
-                      semanticColor: Pragma4TextColor.tertiary,
+                      variant: Pragma4TextType.bodySmall,
+                      semanticColor: Pragma4ComponentColor.muted,
                     ),
                   ),
               ],

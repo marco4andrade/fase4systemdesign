@@ -20,7 +20,7 @@ class ComponentSection extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Pragma4Text(title, variant: Pragma4TextVariant.headlineMedium),
+          Pragma4Text(title, variant: Pragma4TextType.headlineMedium),
           const SizedBox(height: 16),
           Wrap(spacing: 16, runSpacing: 16, children: children),
         ],

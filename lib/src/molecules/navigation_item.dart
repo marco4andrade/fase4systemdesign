@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../atoms/atoms.dart';
 import '../theme/app_colors.dart';
+import '../enums/enums.dart';
 // app_spacing tokens replaced by concrete values in this file
 
 /// Molécula de ítem de navegación para menús
@@ -53,7 +54,7 @@ class Pragma4NavigationItem extends StatelessWidget {
               Expanded(
                 child: Pragma4Text(
                   label,
-                  variant: Pragma4TextVariant.bodyLarge,
+                  variant: Pragma4TextType.bodyLarge,
                   color: isSelected ? Pragma4Colors.primary : null,
                 ),
               ),

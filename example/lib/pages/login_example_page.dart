@@ -18,7 +18,7 @@ class LoginExamplePage extends StatelessWidget {
         ),
         title: const Pragma4HeadlineText(
           'Página de Login',
-          variant: Pragma4TextVariant.headlineSmall,
+          variant: Pragma4TextType.headlineSmall,
         ),
         actions: [
           IconButton(

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../atoms/atoms.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_shadows.dart';
+import '../enums/enums.dart';
 
 /// Molécula de componente tarjeta con estructura flexible de contenido
 class Pragma4CardComponent extends StatelessWidget {
@@ -116,13 +117,13 @@ class Pragma4CardComponent extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               if (title != null)
-                Pragma4Text(title!, variant: Pragma4TextVariant.headlineSmall),
+                Pragma4Text(title!, variant: Pragma4TextType.headlineSmall),
               if (subtitle != null) ...[
                 if (title != null) const SizedBox(height: 4.0), // xs
                 Pragma4Text(
                   subtitle!,
-                  variant: Pragma4TextVariant.bodyMedium,
-                  semanticColor: Pragma4TextColor.tertiary,
+                  variant: Pragma4TextType.bodyMedium,
+                  semanticColor: Pragma4ComponentColor.muted,
                 ),
               ],
             ],
@@ -156,7 +157,7 @@ class Pragma4CardComponent extends StatelessWidget {
                     child: const Center(
                       child: Pragma4Icon(
                         Icons.broken_image,
-                        size: Pragma4IconSize.large,
+                        size: Pragma4ComponentSize.large,
                         semanticColor: Pragma4Colors.onSurfaceVariant,
                       ),
                     ),
@@ -170,7 +171,7 @@ class Pragma4CardComponent extends StatelessWidget {
                 child: const Center(
                   child: Pragma4Icon(
                     Icons.broken_image,
-                    size: Pragma4IconSize.large,
+                    size: Pragma4ComponentSize.large,
                     semanticColor: Pragma4Colors.onSurfaceVariant,
                   ),
                 ),

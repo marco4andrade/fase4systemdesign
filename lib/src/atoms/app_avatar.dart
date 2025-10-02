@@ -1,14 +1,7 @@
 import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_typography.dart';
-
-/// Tamaños de avatar
-enum Pragma4AvatarSize {
-  small, // 32 px
-  medium, // 48 px
-  large, // 64 px
-  xlarge, // 96 px
-}
+import '../enums/enums.dart';
 
 /// Componente de avatar atómico para representar usuarios
 class Pragma4Avatar extends StatelessWidget {
@@ -18,7 +11,7 @@ class Pragma4Avatar extends StatelessWidget {
     this.initials,
     this.backgroundColor,
     this.textColor,
-    this.size = Pragma4AvatarSize.medium,
+    this.size = Pragma4ComponentSize.medium,
     this.onTap,
     this.border,
   }) : assert(
@@ -30,7 +23,7 @@ class Pragma4Avatar extends StatelessWidget {
   final String? initials;
   final Color? backgroundColor;
   final Color? textColor;
-  final Pragma4AvatarSize size;
+  final Pragma4ComponentSize size;
   final VoidCallback? onTap;
   final Border? border;
 
@@ -67,27 +60,18 @@ class Pragma4Avatar extends StatelessWidget {
   }
 
   double _getSize() {
-    switch (size) {
-      case Pragma4AvatarSize.small:
-        return 32;
-      case Pragma4AvatarSize.medium:
-        return 48;
-      case Pragma4AvatarSize.large:
-        return 64;
-      case Pragma4AvatarSize.xlarge:
-        return 96;
-    }
+    return size.avatarSize;
   }
 
   TextStyle _getTextStyle() {
     switch (size) {
-      case Pragma4AvatarSize.small:
+      case Pragma4ComponentSize.small:
         return Pragma4Typography.labelSmall;
-      case Pragma4AvatarSize.medium:
+      case Pragma4ComponentSize.medium:
         return Pragma4Typography.labelMedium;
-      case Pragma4AvatarSize.large:
+      case Pragma4ComponentSize.large:
         return Pragma4Typography.labelLarge;
-      case Pragma4AvatarSize.xlarge:
+      case Pragma4ComponentSize.xlarge:
         return Pragma4Typography.headlineSmall;
     }
   }
@@ -106,13 +90,13 @@ class Pragma4AvatarGroup extends StatelessWidget {
   const Pragma4AvatarGroup({
     super.key,
     required this.avatars,
-    this.size = Pragma4AvatarSize.medium,
+    this.size = Pragma4ComponentSize.medium,
     this.maxAvatars = 3,
     this.spacing = 4,
   });
 
   final List<Pragma4Avatar> avatars;
-  final Pragma4AvatarSize size;
+  final Pragma4ComponentSize size;
   final int maxAvatars;
   final double spacing;
 

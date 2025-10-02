@@ -1,37 +1,22 @@
 import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_typography.dart';
-
-/// Variantes de insignia (badge)
-enum Pragma4BadgeVariant {
-  primary,
-  secondary,
-  success,
-  warning,
-  error,
-  info,
-  neutral,
-}
-
-/// Tamaños de insignia
-const String pragma4BadgeSizeSmall = 'small';
-const String pragma4BadgeSizeMedium = 'medium';
-const String pragma4BadgeSizeLarge = 'large';
+import '../enums/enums.dart';
 
 /// Componente de insignia atómico para indicadores de estado y etiquetas
 class Pragma4Badge extends StatelessWidget {
   const Pragma4Badge({
     super.key,
     required this.text,
-    this.variant = Pragma4BadgeVariant.primary,
-    this.size = pragma4BadgeSizeMedium,
+    this.variant = Pragma4ComponentVariant.primary,
+    this.size = Pragma4ComponentSize.medium,
     this.icon,
     this.onTap,
   });
 
   final String text;
-  final Pragma4BadgeVariant variant;
-  final String size;
+  final Pragma4ComponentVariant variant;
+  final Pragma4ComponentSize size;
   final IconData? icon;
   final VoidCallback? onTap;
 
@@ -47,104 +32,103 @@ class Pragma4Badge extends StatelessWidget {
         mainAxisSize: MainAxisSize.min,
         children: [
           if (icon != null) ...[
-            Icon(
-              icon,
-              size: _getIconSize(),
-              color: _getTextColor(),
-            ),
+            Icon(icon, size: _getIconSize(), color: _getTextColor()),
             SizedBox(width: _getIconSpacing()),
           ],
-          Text(
-            text,
-            style: _getTextStyle().copyWith(
-              color: _getTextColor(),
-            ),
-          ),
+          Text(text, style: _getTextStyle().copyWith(color: _getTextColor())),
         ],
       ),
     );
 
     if (onTap != null) {
-      return GestureDetector(
-        onTap: onTap,
-        child: badgeWidget,
-      );
+      return GestureDetector(onTap: onTap, child: badgeWidget);
     }
 
     return badgeWidget;
   }
 
   EdgeInsets _getPadding() {
-    if (size == pragma4BadgeSizeSmall) {
-      return const EdgeInsets.symmetric(
-        horizontal: 4.0, // xs
-        vertical: 2,
-      );
+    switch (size) {
+      case Pragma4ComponentSize.small:
+        return const EdgeInsets.symmetric(
+          horizontal: 4.0, // xs
+          vertical: 2,
+        );
+      case Pragma4ComponentSize.medium:
+        return const EdgeInsets.symmetric(
+          horizontal: 8.0, // sm
+          vertical: 4.0, // xs
+        );
+      case Pragma4ComponentSize.large:
+      case Pragma4ComponentSize.xlarge:
+        return const EdgeInsets.symmetric(
+          horizontal: 16.0, // md
+          vertical: 8.0, // sm
+        );
     }
-    if (size == pragma4BadgeSizeMedium) {
-      return const EdgeInsets.symmetric(
-        horizontal: 8.0, // sm
-        vertical: 4.0, // xs
-      );
-    }
-    // large
-    return const EdgeInsets.symmetric(
-      horizontal: 16.0, // md
-      vertical: 8.0, // sm
-    );
   }
 
   double _getBorderRadius() {
-    if (size == pragma4BadgeSizeSmall) return 2.0; // radiusXs
-    if (size == pragma4BadgeSizeMedium) return 4.0; // radiusSm
-    return 8.0; // radiusMd
+    switch (size) {
+      case Pragma4ComponentSize.small:
+        return 2.0; // radiusXs
+      case Pragma4ComponentSize.medium:
+        return 4.0; // radiusSm
+      case Pragma4ComponentSize.large:
+      case Pragma4ComponentSize.xlarge:
+        return 8.0; // radiusMd
+    }
   }
 
   Color _getBackgroundColor() {
     switch (variant) {
-      case Pragma4BadgeVariant.primary:
+      case Pragma4ComponentVariant.primary:
         return Pragma4Colors.primary;
-      case Pragma4BadgeVariant.secondary:
+      case Pragma4ComponentVariant.secondary:
         return Pragma4Colors.secondary;
-      case Pragma4BadgeVariant.success:
+      case Pragma4ComponentVariant.success:
         return Pragma4Colors.success;
-      case Pragma4BadgeVariant.warning:
+      case Pragma4ComponentVariant.warning:
         return Pragma4Colors.warning;
-      case Pragma4BadgeVariant.error:
+      case Pragma4ComponentVariant.danger:
         return Pragma4Colors.error;
-      case Pragma4BadgeVariant.info:
+      case Pragma4ComponentVariant.info:
         return Pragma4Colors.info;
-      case Pragma4BadgeVariant.neutral:
+      default:
         return Pragma4Colors.grey500;
     }
   }
 
   Color _getTextColor() {
     switch (variant) {
-      case Pragma4BadgeVariant.primary:
+      case Pragma4ComponentVariant.primary:
         return Pragma4Colors.onPrimary;
-      case Pragma4BadgeVariant.secondary:
+      case Pragma4ComponentVariant.secondary:
         return Pragma4Colors.onSecondary;
-  case Pragma4BadgeVariant.success:
-  case Pragma4BadgeVariant.warning:
-  case Pragma4BadgeVariant.error:
-  case Pragma4BadgeVariant.info:
+      case Pragma4ComponentVariant.success:
+      case Pragma4ComponentVariant.warning:
+      case Pragma4ComponentVariant.danger:
+      case Pragma4ComponentVariant.info:
         return Colors.white;
-  case Pragma4BadgeVariant.neutral:
+      default:
         return Colors.white;
     }
   }
 
   TextStyle _getTextStyle() {
-    if (size == pragma4BadgeSizeSmall) return Pragma4Typography.labelSmall;
-    if (size == pragma4BadgeSizeMedium) return Pragma4Typography.labelMedium;
-    return Pragma4Typography.labelLarge;
+    switch (size) {
+      case Pragma4ComponentSize.small:
+        return Pragma4Typography.labelSmall;
+      case Pragma4ComponentSize.medium:
+        return Pragma4Typography.labelMedium;
+      case Pragma4ComponentSize.large:
+      case Pragma4ComponentSize.xlarge:
+        return Pragma4Typography.labelLarge;
+    }
   }
 
   double _getIconSize() {
-    if (size == pragma4BadgeSizeSmall) return 12;
-    if (size == pragma4BadgeSizeMedium) return 14;
-    return 16;
+    return size.iconSize;
   }
 
   double _getIconSpacing() {
@@ -156,11 +140,11 @@ class Pragma4Badge extends StatelessWidget {
 class Pragma4DotBadge extends StatelessWidget {
   const Pragma4DotBadge({
     super.key,
-  this.variant = Pragma4BadgeVariant.error,
+    this.variant = Pragma4ComponentVariant.danger,
     this.size = 8,
   });
 
-  final Pragma4BadgeVariant variant;
+  final Pragma4ComponentVariant variant;
   final double size;
 
   @override
@@ -168,28 +152,25 @@ class Pragma4DotBadge extends StatelessWidget {
     return Container(
       width: size,
       height: size,
-      decoration: BoxDecoration(
-        color: _getColor(),
-        shape: BoxShape.circle,
-      ),
+      decoration: BoxDecoration(color: _getColor(), shape: BoxShape.circle),
     );
   }
 
   Color _getColor() {
     switch (variant) {
-      case Pragma4BadgeVariant.primary:
+      case Pragma4ComponentVariant.primary:
         return Pragma4Colors.primary;
-      case Pragma4BadgeVariant.secondary:
+      case Pragma4ComponentVariant.secondary:
         return Pragma4Colors.secondary;
-      case Pragma4BadgeVariant.success:
+      case Pragma4ComponentVariant.success:
         return Pragma4Colors.success;
-      case Pragma4BadgeVariant.warning:
+      case Pragma4ComponentVariant.warning:
         return Pragma4Colors.warning;
-      case Pragma4BadgeVariant.error:
+      case Pragma4ComponentVariant.danger:
         return Pragma4Colors.error;
-      case Pragma4BadgeVariant.info:
+      case Pragma4ComponentVariant.info:
         return Pragma4Colors.info;
-      case Pragma4BadgeVariant.neutral:
+      default:
         return Pragma4Colors.grey500;
     }
   }
@@ -200,22 +181,22 @@ class Pragma4NumberBadge extends StatelessWidget {
   const Pragma4NumberBadge({
     super.key,
     required this.count,
-  this.variant = Pragma4BadgeVariant.error,
+    this.variant = Pragma4ComponentVariant.danger,
     this.maxCount = 99,
   });
 
   final int count;
-  final Pragma4BadgeVariant variant;
+  final Pragma4ComponentVariant variant;
   final int maxCount;
 
   @override
   Widget build(BuildContext context) {
     final displayText = count > maxCount ? '$maxCount+' : count.toString();
-    
-  return Pragma4Badge(
+
+    return Pragma4Badge(
       text: displayText,
       variant: variant,
-      size: pragma4BadgeSizeSmall,
+      size: Pragma4ComponentSize.small,
     );
   }
 }

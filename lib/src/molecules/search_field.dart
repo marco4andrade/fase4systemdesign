@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../atoms/atoms.dart';
 import '../theme/app_colors.dart';
+import '../enums/enums.dart';
 
 /// Molécula de campo de búsqueda que combina entrada y acción de buscar
 class Pragma4SearchField extends StatefulWidget {
@@ -77,13 +78,13 @@ class _Pragma4SearchFieldState extends State<Pragma4SearchField> {
       onSubmitted: widget.onSubmitted,
       prefixIcon: const Pragma4Icon(
         Icons.search,
-        size: Pragma4IconSize.small,
+        size: Pragma4ComponentSize.small,
         semanticColor: Pragma4Colors.onSurfaceVariant,
       ),
       suffixIcon: widget.showClearButton && _hasText
           ? Pragma4IconButton(
               icon: Icons.clear,
-              size: Pragma4IconSize.small,
+              size: Pragma4ComponentSize.small,
               onPressed: _handleClear,
             )
           : null,

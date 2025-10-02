@@ -14,12 +14,12 @@ class AtomsPage extends StatelessWidget {
         children: [
           const Pragma4Text(
             'Átomos',
-            variant: Pragma4TextVariant.displayMedium,
+            variant: Pragma4TextType.displayMedium,
           ),
           const SizedBox(height: 16),
           const Pragma4Text(
             'Bloques de construcción básicos del sistema de diseño',
-            variant: Pragma4TextVariant.bodyLarge,
+            variant: Pragma4TextType.bodyLarge,
           ),
           const SizedBox(height: 32),
 
@@ -30,17 +30,17 @@ class AtomsPage extends StatelessWidget {
               Pragma4Button(
                 text: 'Secundario',
                 onPressed: () {},
-                variant: Pragma4ButtonVariant.secondary,
+                variant: Pragma4ComponentVariant.secondary,
               ),
               Pragma4Button(
                 text: 'Contorno',
                 onPressed: () {},
-                variant: Pragma4ButtonVariant.outline,
+                variant: Pragma4ComponentVariant.outline,
               ),
               Pragma4Button(
                 text: 'Peligro',
                 onPressed: () {},
-                variant: Pragma4ButtonVariant.danger,
+                variant: Pragma4ComponentVariant.danger,
               ),
             ],
           ),
@@ -51,16 +51,16 @@ class AtomsPage extends StatelessWidget {
             children: const [
               Pragma4Text(
                 'Título Grande',
-                variant: Pragma4TextVariant.displayLarge,
+                variant: Pragma4TextType.displayLarge,
               ),
               Pragma4Text(
                 'Titular Mediano',
-                variant: Pragma4TextVariant.headlineMedium,
+                variant: Pragma4TextType.headlineMedium,
               ),
-              Pragma4Text('Cuerpo Grande', variant: Pragma4TextVariant.bodyLarge),
+              Pragma4Text('Cuerpo Grande', variant: Pragma4TextType.bodyLarge),
               Pragma4Text(
                 'Etiqueta Mediana',
-                variant: Pragma4TextVariant.labelMedium,
+                variant: Pragma4TextType.labelMedium,
               ),
             ],
           ),
@@ -86,8 +86,8 @@ class AtomsPage extends StatelessWidget {
             title: 'Etiquetas',
             children: [
               Pragma4Badge(text: 'Nuevo'),
-              Pragma4Badge(text: 'Éxito', variant: Pragma4BadgeVariant.success),
-              Pragma4Badge(text: 'Error', variant: Pragma4BadgeVariant.error),
+              Pragma4Badge(text: 'Éxito', variant: Pragma4ComponentVariant.primary),
+              Pragma4Badge(text: 'Error', variant: Pragma4ComponentVariant.danger),
             ],
           ),
         ],

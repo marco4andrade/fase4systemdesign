@@ -18,7 +18,7 @@ class SectionWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Pragma4Text(title, variant: Pragma4TextVariant.headlineMedium),
+          Pragma4Text(title, variant: Pragma4TextType.headlineMedium),
           const SizedBox(height: 16),
           ...children.map(
             (child) => Padding(

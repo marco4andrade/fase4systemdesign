@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../atoms/atoms.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_shadows.dart';
+import '../enums/enums.dart';
 
 /// Molécula de elemento de lista con estructura consistente
 class Pragma4ListItem extends StatelessWidget {
@@ -64,15 +65,15 @@ class Pragma4ListItem extends StatelessWidget {
           title: title != null
               ? Pragma4Text(
                   title!,
-                  variant: Pragma4TextVariant.bodyLarge,
+                  variant: Pragma4TextType.bodyLarge,
                   color: enabled ? null : Pragma4Colors.onSurfaceVariant,
                 )
               : null,
           subtitle: subtitle != null
               ? Pragma4Text(
                   subtitle!,
-                  variant: Pragma4TextVariant.bodyMedium,
-                  semanticColor: Pragma4TextColor.tertiary,
+                  variant: Pragma4TextType.bodyMedium,
+                  semanticColor: Pragma4ComponentColor.muted,
                 )
               : null,
           trailing: trailing,
@@ -109,13 +110,13 @@ class Pragma4AvatarListItem extends Pragma4ListItem {
     super.onTap,
     super.enabled,
     super.selected,
-    this.avatarSize = Pragma4AvatarSize.medium,
+    this.avatarSize = Pragma4ComponentSize.medium,
   }) : super(title: name, subtitle: description);
 
   final String avatarUrl;
   final String name;
   final String? description;
-  final Pragma4AvatarSize avatarSize;
+  final Pragma4ComponentSize avatarSize;
 
   @override
   Widget build(BuildContext context) {
@@ -147,12 +148,12 @@ class Pragma4IconListItem extends Pragma4ListItem {
     super.enabled,
     super.selected,
     this.iconColor,
-    this.iconSize = Pragma4IconSize.medium,
+    this.iconSize = Pragma4ComponentSize.medium,
   });
 
   final IconData icon;
   final Color? iconColor;
-  final Pragma4IconSize iconSize;
+  final Pragma4ComponentSize iconSize;
 
   @override
   Widget build(BuildContext context) {

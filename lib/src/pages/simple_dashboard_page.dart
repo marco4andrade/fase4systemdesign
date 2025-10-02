@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../atoms/atoms.dart';
 import '../molecules/molecules.dart';
 import '../theme/app_colors.dart';
+import '../enums/enums.dart';
 
 /// Modelo simple para métricas del dashboard
 class SimpleDashboardMetric {
@@ -44,7 +45,7 @@ class SimpleDashboardPage extends StatelessWidget {
       appBar: AppBar(
         title: Pragma4HeadlineText(
           title,
-          variant: Pragma4TextVariant.headlineSmall,
+          variant: Pragma4TextType.headlineSmall,
         ),
         backgroundColor: Pragma4Colors.surface,
         elevation: 0,
@@ -70,7 +71,7 @@ class SimpleDashboardPage extends StatelessWidget {
           children: [
             Pragma4HeadlineText(
               'Bienvenido',
-              variant: Pragma4TextVariant.headlineMedium,
+              variant: Pragma4TextType.headlineMedium,
             ),
             const SizedBox(height: 4.0),
             Pragma4BodyText(subtitle, color: Pragma4Colors.onSurfaceVariant),
@@ -79,7 +80,7 @@ class SimpleDashboardPage extends StatelessWidget {
             if (metrics.isNotEmpty) ...[
               const Pragma4HeadlineText(
                 'Resumen',
-                variant: Pragma4TextVariant.headlineSmall,
+                variant: Pragma4TextType.headlineSmall,
               ),
               const SizedBox(height: 16.0),
               _buildMetricsGrid(),
@@ -126,12 +127,12 @@ class SimpleDashboardPage extends StatelessWidget {
               const SizedBox(height: 8.0),
               Pragma4HeadlineText(
                 metric.value,
-                variant: Pragma4TextVariant.headlineMedium,
+                variant: Pragma4TextType.headlineMedium,
               ),
               const SizedBox(height: 4.0),
               Pragma4BodyText(
                 metric.title,
-                variant: Pragma4TextVariant.bodySmall,
+                variant: Pragma4TextType.bodySmall,
                 color: Pragma4Colors.onSurfaceVariant,
               ),
             ],

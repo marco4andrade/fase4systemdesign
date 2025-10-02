@@ -70,18 +70,18 @@ class _ShowcasePageState extends State<ShowcasePage> {
                 children: [
                   Pragma4Icon(
                     Icons.palette,
-                    size: Pragma4IconSize.large,
+                    size: Pragma4ComponentSize.large,
                     color: Colors.white,
                   ),
                   const SizedBox(height: 12),
                   Pragma4Text(
                     'Sistema de Diseño',
-                    variant: Pragma4TextVariant.headlineMedium,
+                    variant: Pragma4TextType.headlineMedium,
                     color: Colors.white,
                   ),
                   Pragma4Text(
                     'Componentes de Atomic Design',
-                    variant: Pragma4TextVariant.bodyMedium,
+                    variant: Pragma4TextType.bodyMedium,
                     color: Colors.white,
                   ),
                 ],
@@ -129,12 +129,12 @@ class OverviewPage extends StatelessWidget {
         children: [
           Pragma4Text(
             'Bienvenido al Sistema de Diseño',
-            variant: Pragma4TextVariant.displayMedium,
+            variant: Pragma4TextType.displayMedium,
           ),
           const SizedBox(height: 16),
           Pragma4Text(
             'Esta muestra demuestra un sistema de diseño completo construido usando principios de Atomic Design.',
-            variant: Pragma4TextVariant.bodyLarge,
+            variant: Pragma4TextType.bodyLarge,
           ),
           const SizedBox(height: 32),
           Pragma4DashboardStats(
@@ -168,7 +168,7 @@ class OverviewPage extends StatelessWidget {
           const SizedBox(height: 32),
           Pragma4Text(
             'Niveles de Atomic Design',
-            variant: Pragma4TextVariant.headlineLarge,
+            variant: Pragma4TextType.headlineLarge,
           ),
           const SizedBox(height: 16),
           DesignLevelCard(

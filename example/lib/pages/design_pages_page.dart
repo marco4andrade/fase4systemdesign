@@ -15,12 +15,12 @@ class DesignPagesPage extends StatelessWidget {
         children: [
           const Pragma4Text(
             'Páginas',
-            variant: Pragma4TextVariant.displayMedium,
+            variant: Pragma4TextType.displayMedium,
           ),
           const SizedBox(height: 16),
           const Pragma4Text(
             'Implementaciones reutilizables completas construidas con plantillas y organismos.',
-            variant: Pragma4TextVariant.bodyLarge,
+            variant: Pragma4TextType.bodyLarge,
           ),
           const SizedBox(height: 32),
                     const SizedBox(height: 32),

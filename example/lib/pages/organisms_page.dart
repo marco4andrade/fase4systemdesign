@@ -15,12 +15,12 @@ class OrganismsPage extends StatelessWidget {
         children: const [
           Pragma4Text(
             'Organismos',
-            variant: Pragma4TextVariant.displayMedium,
+            variant: Pragma4TextType.displayMedium,
           ),
           SizedBox(height: 16),
           Pragma4Text(
             'Componentes complejos construidos a partir de moléculas y átomos',
-            variant: Pragma4TextVariant.bodyLarge,
+            variant: Pragma4TextType.bodyLarge,
           ),
           SizedBox(height: 32),
           SectionWidget(

@@ -19,7 +19,7 @@ class ShowcaseExamplePage extends StatelessWidget {
         ),
         title: const Pragma4HeadlineText(
           'Showcase del Sistema',
-          variant: Pragma4TextVariant.headlineSmall,
+          variant: Pragma4TextType.headlineSmall,
         ),
         actions: [
           IconButton(

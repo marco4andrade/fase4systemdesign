@@ -67,7 +67,3 @@ class Pragma4ToggleItem<T> {
   final String label;
   final IconData? icon;
 }
-
-// Compatibilidad temporal
-typedef ToggleGroup<T> = Pragma4ToggleGroup<T>;
-typedef ToggleItem<T> = Pragma4ToggleItem<T>;

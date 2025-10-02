@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../atoms/atoms.dart';
 import '../theme/app_colors.dart';
+import '../enums/enums.dart';
 
 /// Página de login reutilizable
 class LoginPage extends StatefulWidget {
@@ -83,13 +84,13 @@ class _LoginPageState extends State<LoginPage> {
                     // Título y subtítulo
                     Pragma4HeadlineText(
                       widget.title,
-                      variant: Pragma4TextVariant.headlineLarge,
+                      variant: Pragma4TextType.headlineLarge,
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 8.0),
                     Pragma4BodyText(
                       widget.subtitle,
-                      variant: Pragma4TextVariant.bodyLarge,
+                      variant: Pragma4TextType.bodyLarge,
                       textAlign: TextAlign.center,
                       color: Pragma4Colors.onSurfaceVariant,
                     ),

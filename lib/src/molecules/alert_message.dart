@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import '../atoms/atoms.dart';
 import '../theme/app_colors.dart';
+import '../enums/enums.dart';
 
 /// Variantes de mensaje de alerta
-/// Variantes visuales del mensaje de alerta
 enum Pragma4AlertVariant { info, success, warning, error }
 
 /// Molécula de mensaje de alerta para notificaciones y retroalimentación
@@ -41,7 +41,7 @@ class Pragma4AlertMessage extends StatelessWidget {
             Pragma4Icon(
               _getIcon(),
               color: _getIconColor(),
-              size: Pragma4IconSize.small,
+              size: Pragma4ComponentSize.small,
             ),
             const SizedBox(width: 8.0),
           ],
@@ -53,14 +53,14 @@ class Pragma4AlertMessage extends StatelessWidget {
                 if (title != null) ...[
                   Pragma4Text(
                     title!,
-                    variant: Pragma4TextVariant.labelLarge,
+                    variant: Pragma4TextType.labelLarge,
                     color: _getTextColor(),
                   ),
                   const SizedBox(height: 4.0),
                 ],
                 Pragma4Text(
                   message,
-                  variant: Pragma4TextVariant.bodyMedium,
+                  variant: Pragma4TextType.bodyMedium,
                   color: _getTextColor(),
                 ),
                 if (actions != null && actions!.isNotEmpty) ...[
@@ -74,7 +74,7 @@ class Pragma4AlertMessage extends StatelessWidget {
             const SizedBox(width: 8.0),
             Pragma4IconButton(
               icon: Icons.close,
-              size: Pragma4IconSize.small,
+              size: Pragma4ComponentSize.small,
               onPressed: onClose,
               iconColor: _getIconColor(),
             ),

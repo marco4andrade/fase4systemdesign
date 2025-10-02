@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_typography.dart';
-
-/// Variantes de chip
-enum Pragma4ChipVariant { filled, outlined, elevated }
+import '../enums/enums.dart';
 
 /// Componente de chip atómico para etiquetas y selecciones
 class Pragma4Chip extends StatelessWidget {
@@ -15,7 +13,7 @@ class Pragma4Chip extends StatelessWidget {
     this.onDeleted,
     this.onPressed,
     this.isSelected = false,
-    this.variant = Pragma4ChipVariant.filled,
+    this.variant = Pragma4ComponentVariant.filled,
     this.backgroundColor,
     this.selectedColor,
     this.labelColor,
@@ -27,7 +25,7 @@ class Pragma4Chip extends StatelessWidget {
   final VoidCallback? onDeleted;
   final VoidCallback? onPressed;
   final bool isSelected;
-  final Pragma4ChipVariant variant;
+  final Pragma4ComponentVariant variant;
   final Color? backgroundColor;
   final Color? selectedColor;
   final Color? labelColor;
@@ -98,12 +96,14 @@ class Pragma4Chip extends StatelessWidget {
     }
 
     switch (variant) {
-      case Pragma4ChipVariant.filled:
+      case Pragma4ComponentVariant.filled:
         return Pragma4Colors.surfaceVariant;
-      case Pragma4ChipVariant.outlined:
+      case Pragma4ComponentVariant.outlined:
         return Colors.transparent;
-      case Pragma4ChipVariant.elevated:
+      case Pragma4ComponentVariant.primary:
         return Pragma4Colors.surface;
+      default:
+        return Pragma4Colors.surfaceVariant;
     }
   }
 
@@ -122,20 +122,22 @@ class Pragma4Chip extends StatelessWidget {
 
   BorderSide? _getBorderSide() {
     switch (variant) {
-      case Pragma4ChipVariant.outlined:
+      case Pragma4ComponentVariant.outlined:
         return const BorderSide(color: Pragma4Colors.grey300);
-      case Pragma4ChipVariant.filled:
-      case Pragma4ChipVariant.elevated:
+      case Pragma4ComponentVariant.filled:
+      case Pragma4ComponentVariant.primary:
+      default:
         return null;
     }
   }
 
   double _getElevation() {
     switch (variant) {
-      case Pragma4ChipVariant.elevated:
+      case Pragma4ComponentVariant.primary:
         return 2;
-      case Pragma4ChipVariant.filled:
-      case Pragma4ChipVariant.outlined:
+      case Pragma4ComponentVariant.filled:
+      case Pragma4ComponentVariant.outlined:
+      default:
         return 0;
     }
   }

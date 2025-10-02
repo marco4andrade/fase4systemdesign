@@ -21,7 +21,7 @@ class HomePage extends StatelessWidget {
               const Center(
                 child: Pragma4HeadlineText(
                   'Sistema de Diseño Flutter',
-                  variant: Pragma4TextVariant.headlineLarge,
+                  variant: Pragma4TextType.headlineLarge,
                   textAlign: TextAlign.center,
                 ),
               ),
@@ -36,7 +36,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 32),
               const Pragma4HeadlineText(
                 'Páginas Reutilizables',
-                variant: Pragma4TextVariant.headlineMedium,
+                variant: Pragma4TextType.headlineMedium,
               ),
               const SizedBox(height: 8),
               Pragma4BodyText(
@@ -59,7 +59,7 @@ class HomePage extends StatelessWidget {
               const SizedBox(height: 24),
               const Pragma4HeadlineText(
                 'Páginas de Demostración',
-                variant: Pragma4TextVariant.headlineSmall,
+                variant: Pragma4TextType.headlineSmall,
               ),
               const SizedBox(height: 8),
               Pragma4BodyText(

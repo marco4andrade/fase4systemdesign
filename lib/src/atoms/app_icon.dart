@@ -1,27 +1,20 @@
 import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
-
-/// Tamaños de ícono
-enum Pragma4IconSize {
-  small, // 16 px
-  medium, // 24 px
-  large, // 32 px
-  xlarge, // 48 px
-}
+import '../enums/enums.dart';
 
 /// Componente de ícono atómico con tamaño y estilo consistentes
 class Pragma4Icon extends StatelessWidget {
   const Pragma4Icon(
     this.icon, {
     super.key,
-    this.size = Pragma4IconSize.medium,
+    this.size = Pragma4ComponentSize.medium,
     this.color,
     this.semanticColor,
     this.onTap,
   });
 
   final IconData icon;
-  final Pragma4IconSize size;
+  final Pragma4ComponentSize size;
   final Color? color;
   final Color? semanticColor;
   final VoidCallback? onTap;
@@ -45,16 +38,7 @@ class Pragma4Icon extends StatelessWidget {
   }
 
   double _getIconSize() {
-    switch (size) {
-      case Pragma4IconSize.small:
-        return 16;
-      case Pragma4IconSize.medium:
-        return 24;
-      case Pragma4IconSize.large:
-        return 32;
-      case Pragma4IconSize.xlarge:
-        return 48;
-    }
+    return size.iconSize;
   }
 
   Color? _getIconColor() {
@@ -72,7 +56,7 @@ class Pragma4IconButton extends StatelessWidget {
     super.key,
     required this.icon,
     required this.onPressed,
-    this.size = Pragma4IconSize.medium,
+    this.size = Pragma4ComponentSize.medium,
     this.backgroundColor,
     this.iconColor,
     this.borderRadius,
@@ -82,7 +66,7 @@ class Pragma4IconButton extends StatelessWidget {
 
   final IconData icon;
   final VoidCallback? onPressed;
-  final Pragma4IconSize size;
+  final Pragma4ComponentSize size;
   final Color? backgroundColor;
   final Color? iconColor;
   final double? borderRadius;
@@ -125,26 +109,27 @@ class Pragma4IconButton extends StatelessWidget {
 
   double _getDefaultBorderRadius() {
     switch (size) {
-      case Pragma4IconSize.small:
+      case Pragma4ComponentSize.small:
         return 4.0;
-      case Pragma4IconSize.medium:
+      case Pragma4ComponentSize.medium:
+        return 6.0;
+      case Pragma4ComponentSize.large:
         return 8.0;
-      case Pragma4IconSize.large:
-      case Pragma4IconSize.xlarge:
-        return 12.0;
+      case Pragma4ComponentSize.xlarge:
+        return 10.0;
     }
   }
 
   double _getPadding() {
     switch (size) {
-      case Pragma4IconSize.small:
+      case Pragma4ComponentSize.small:
         return 4.0;
-      case Pragma4IconSize.medium:
+      case Pragma4ComponentSize.medium:
         return 8.0;
-      case Pragma4IconSize.large:
+      case Pragma4ComponentSize.large:
+        return 12.0;
+      case Pragma4ComponentSize.xlarge:
         return 16.0;
-      case Pragma4IconSize.xlarge:
-        return 24.0;
     }
   }
 }

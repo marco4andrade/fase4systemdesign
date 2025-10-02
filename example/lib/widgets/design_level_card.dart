@@ -22,7 +22,7 @@ class DesignLevelCard extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16),
       child: Pragma4CardComponent(
-        leading: Pragma4Icon(icon, color: color, size: Pragma4IconSize.large),
+        leading: Pragma4Icon(icon, color: color, size: Pragma4ComponentSize.large),
         title: title,
         subtitle: description,
       ),

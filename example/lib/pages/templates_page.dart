@@ -15,12 +15,12 @@ class TemplatesPage extends StatelessWidget {
         children: [
           const design.Pragma4Text(
             'Plantillas',
-            variant: design.Pragma4TextVariant.displayMedium,
+            variant: design.Pragma4TextType.displayMedium,
           ),
           const SizedBox(height: 16),
           const design.Pragma4Text(
             'Estructuras de página reutilizables que definen layout y composición.',
-            variant: design.Pragma4TextVariant.bodyLarge,
+            variant: design.Pragma4TextType.bodyLarge,
           ),
           const SizedBox(height: 32),
           TemplateSection(
@@ -46,7 +46,7 @@ class TemplatesPage extends StatelessWidget {
                 title: 'Panel de Ventas',
                 actions: [
                   design.Pragma4Button(
-                    variant: design.Pragma4ButtonVariant.secondary,
+                    variant: design.Pragma4ComponentVariant.secondary,
                     text: 'Acción',
                     onPressed: () {},
                   ),

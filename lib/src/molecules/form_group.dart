@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../atoms/atoms.dart';
+import '../enums/enums.dart';
 
 /// Molécula de grupo de formulario para organizar campos
 class Pragma4FormGroup extends StatelessWidget {
@@ -24,14 +25,14 @@ class Pragma4FormGroup extends StatelessWidget {
         if (title != null) ...[
           Pragma4Text(
             title!,
-            variant: Pragma4TextVariant.headlineSmall,
+            variant: Pragma4TextType.headlineSmall,
           ),
           if (description != null) ...[
             const SizedBox(height: 4.0),
             Pragma4Text(
               description!,
-              variant: Pragma4TextVariant.bodyMedium,
-              semanticColor: Pragma4TextColor.tertiary,
+              variant: Pragma4TextType.bodyMedium,
+              semanticColor: Pragma4ComponentColor.muted,
             ),
           ],
           SizedBox(height: spacing),
