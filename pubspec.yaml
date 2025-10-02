@@ -1,6 +1,6 @@
 name: fase4_system_design
 description: "Un paquete integral de sistema de diseño Flutter basado en principios de Atomic Design."
-version: 1.0.0
+version: 1.1.0
 homepage: https://github.com/marco4andrade/fase4systemdesign
 
 environment:
