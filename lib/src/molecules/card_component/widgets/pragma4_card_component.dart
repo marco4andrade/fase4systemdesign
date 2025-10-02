@@ -118,53 +118,5 @@ class Pragma4CardComponent extends StatelessWidget {
         trailing != null ||
         (!imageOnTop && (image != null || imageUrl != null));
   }
-  
-  /// Calcula padding responsivo basado en las restricciones disponibles
-  EdgeInsets _calculateResponsivePadding(BoxConstraints constraints) {
-    final width = constraints.maxWidth;
-    final height = constraints.maxHeight;
-    final area = width * height;
-    
-    // Padding adaptativo basado en el área disponible
-    if (area < 10000) {
-      // Espacio muy limitado
-      return const EdgeInsets.all(6.0);
-    } else if (area < 20000) {
-      // Espacio limitado
-      return const EdgeInsets.all(8.0);
-    } else if (width < 150 || height < 80) {
-      // Dimensiones compactas
-      return const EdgeInsets.all(10.0);
-    } else if (width < 200 || height < 120) {
-      // Dimensiones medianas
-      return const EdgeInsets.all(12.0);
-    } else {
-      // Usar padding original para espacios amplios
-      return padding;
-    }
-  }
-  
-  /// Calcula espaciado vertical responsivo
-  double _calculateVerticalSpacing(BoxConstraints constraints) {
-    final height = constraints.maxHeight;
-    
-    if (height < 60) {
-      return 2.0; // Spacing mínimo
-    } else if (height < 100) {
-      return 4.0; // Spacing reducido
-    } else if (height < 150) {
-      return 6.0; // Spacing intermedio
-    } else {
-      return 8.0; // Spacing estándar
-    }
-  }
-  
-  /// Calcula altura de imagen responsiva
-  double _calculateResponsiveImageHeight(BoxConstraints constraints) {
-    final height = constraints.maxHeight;
-    final maxImageHeight = height * 0.4; // Máximo 40% de la altura total
-    
-    // Usar la altura más pequeña entre la configurada y la calculada
-    return imageHeight > maxImageHeight ? maxImageHeight : imageHeight;
-  }
+
 }

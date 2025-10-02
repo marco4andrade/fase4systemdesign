@@ -1,4 +1,3 @@
-/// Variantes de componentes específicos del sistema de diseño
 
 /// Variantes de mensaje de alerta
 enum Pragma4AlertVariant { 
