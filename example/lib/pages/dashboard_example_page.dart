@@ -10,7 +10,7 @@ class DashboardExamplePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return SimpleDashboardPage(
       title: 'Mi Dashboard',
-      subtitle: 'Ejemplo de dashboard reutilizasssble',
+      subtitle: 'Ejemplo de dashboard reutilizable',
       metrics: const [
         SimpleDashboardMetric(
           title: 'Usuarios',
@@ -33,7 +33,14 @@ class DashboardExamplePage extends StatelessWidget {
           icon: Icons.inventory,
         ),
       ],
-      onMenuTap: () => AppRoutes.goToHome(context),
+      // Si venimos desde otra página (ej. DesignPagesPage) permitimos volver con pop.
+      onMenuTap: () {
+        if (Navigator.canPop(context)) {
+          Navigator.pop(context);
+        } else {
+          AppRoutes.goToHome(context);
+        }
+      },
       onNotificationTap: () {
         ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text('Notificaciones')),

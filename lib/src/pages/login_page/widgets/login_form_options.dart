@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../atoms/atoms.dart';
 import '../../../theme/app_colors.dart';
+import '../../../enums/enums.dart';
 import '../models/login_form_data.dart';
 import '../styles/login_page_styles.dart';
 
@@ -34,7 +35,7 @@ class LoginFormOptions extends StatelessWidget {
                 onChanged: onRememberMeChanged,
               ),
               const SizedBox(width: LoginPageStyles.rememberMeSpacing),
-              const Pragma4BodyText('Recordarme'),
+              const Pragma4Text('Recordarme', variant: Pragma4TextType.bodyMedium),
             ],
           )
         else
@@ -43,8 +44,9 @@ class LoginFormOptions extends StatelessWidget {
         // Enlace "¿Olvidaste tu contraseña?"
         TextButton(
           onPressed: onForgotPassword,
-          child: const Pragma4BodyText(
+          child: const Pragma4Text(
             '¿Olvidaste tu contraseña?',
+            variant: Pragma4TextType.bodyMedium,
             color: Pragma4Colors.primary,
           ),
         ),

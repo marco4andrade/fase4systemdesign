@@ -16,7 +16,7 @@ class LoginExamplePage extends StatelessWidget {
           icon: const Pragma4Icon(Icons.arrow_back),
           onPressed: () => AppRoutes.goBack(context),
         ),
-        title: const Pragma4HeadlineText(
+        title: const Pragma4Text(
           'Página de Login',
           variant: Pragma4TextType.headlineSmall,
         ),

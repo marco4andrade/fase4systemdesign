@@ -23,8 +23,9 @@ class DashboardAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
+    final bool canPop = Navigator.canPop(context);
     return AppBar(
-      title: Pragma4HeadlineText(
+      title: Pragma4Text(
         title,
         variant: Pragma4TextType.headlineSmall,
       ),
@@ -32,10 +33,17 @@ class DashboardAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: DashboardStyles.appBarElevation,
       leading: showMenuButton && onMenuTap != null
           ? IconButton(
-              icon: const Pragma4Icon(Icons.menu),
+              icon: Pragma4Icon(
+                canPop ? Icons.arrow_back : Icons.menu,
+              ),
               onPressed: onMenuTap,
             )
-          : null,
+          : (canPop
+              ? IconButton(
+                  icon: const Pragma4Icon(Icons.arrow_back),
+                  onPressed: () => Navigator.pop(context),
+                )
+              : null),
       automaticallyImplyLeading: showMenuButton && onMenuTap != null,
       actions: [
         if (showNotificationButton && onNotificationTap != null)

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fase4_system_design/fase4_system_design.dart';
-import '../widgets/page_example.dart';
+import '../routes/app_routes.dart';
 
 /// Showcase para el nivel de Páginas reutilizables
 class DesignPagesPage extends StatelessWidget {
@@ -23,48 +23,25 @@ class DesignPagesPage extends StatelessWidget {
             variant: Pragma4TextType.bodyLarge,
           ),
           const SizedBox(height: 32),
-                    const SizedBox(height: 32),
-          PageExample(
-            title: 'LoginPage',
-            description: 'Página de inicio de sesión lista para usar.',
-            preview: SizedBox(
-              height: 320,
-              child: LoginPage(
-                title: 'Mi App',
-                subtitle: 'Inicia sesión en tu cuenta',
-                onLogin: (email, password, rememberMe) {},
-                onForgotPassword: () {},
-                onSignUp: () {},
-              ),
-            ),
+          const Pragma4Text(
+            'Selecciona una página para verla en contexto completo:',
+            variant: Pragma4TextType.bodyMedium,
           ),
-          PageExample(
-            title: 'SimpleDashboardPage',
-            description: 'Dashboard básico con métricas y contenido personalizable.',
-            preview: SizedBox(
-              height: 320,
-              child: SimpleDashboardPage(
-                title: 'Dashboard',
-                subtitle: 'Vista general de métricas',
-                metrics: const [
-                  SimpleDashboardMetric(
-                    title: 'Usuarios',
-                    value: '1,234',
-                    icon: Icons.people,
-                  ),
-                  SimpleDashboardMetric(
-                    title: 'Ventas',
-                    value: '\$5,678',
-                    icon: Icons.attach_money,
-                  ),
-                ],
-                onMenuTap: () {},
-                onNotificationTap: () {},
-                children: const [
-                  Text('Contenido del dashboard aquí'),
-                ],
+          const SizedBox(height: 24),
+          Wrap(
+            spacing: 16,
+            runSpacing: 16,
+            children: [
+              Pragma4Button(
+                text: 'Ver LoginPage',
+                onPressed: () => AppRoutes.navigateTo(context, AppRoutes.login),
               ),
-            ),
+              Pragma4Button(
+                text: 'Ver DashboardPage',
+                variant: Pragma4ComponentVariant.secondary,
+                onPressed: () => AppRoutes.navigateTo(context, AppRoutes.dashboard),
+              ),
+            ],
           ),
         ],
       ),

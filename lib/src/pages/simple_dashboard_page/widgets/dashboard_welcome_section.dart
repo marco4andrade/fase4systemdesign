@@ -24,12 +24,12 @@ class DashboardWelcomeSection extends StatelessWidget {
     return Column(
       crossAxisAlignment: DashboardStyles.mainCrossAxisAlignment,
       children: [
-        Pragma4HeadlineText(
-          welcomeTitle,
-          variant: titleVariant,
-        ),
+          Pragma4Text(
+            welcomeTitle,
+            variant: titleVariant,
+          ),
         const SizedBox(height: DashboardStyles.titleSpacing),
-        Pragma4BodyText(
+        Pragma4Text(
           subtitle,
           color: subtitleColor ?? Pragma4Colors.onSurfaceVariant,
         ),

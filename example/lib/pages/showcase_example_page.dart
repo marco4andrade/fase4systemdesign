@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fase4_system_design/fase4_system_design.dart';
 import '../routes/app_routes.dart';
-import 'showcase_page.dart';
+import '../showcase/pages/showcase_page.dart';
 
 /// Página de ejemplo que muestra el showcase completo de componentes
 class ShowcaseExamplePage extends StatelessWidget {
@@ -17,7 +17,7 @@ class ShowcaseExamplePage extends StatelessWidget {
           icon: const Pragma4Icon(Icons.arrow_back),
           onPressed: () => AppRoutes.goBack(context),
         ),
-        title: const Pragma4HeadlineText(
+        title: const Pragma4Text(
           'Showcase del Sistema',
           variant: Pragma4TextType.headlineSmall,
         ),

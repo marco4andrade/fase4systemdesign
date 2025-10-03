@@ -1,5 +1,4 @@
 // Páginas de demostración del ejemplo
-export 'showcase_page.dart';
 export 'atoms_page.dart';
 export 'molecules_page.dart';
 export 'organisms_page.dart';

@@ -33,7 +33,7 @@ class DashboardMetricsGrid extends StatelessWidget {
     return Column(
       crossAxisAlignment: DashboardStyles.mainCrossAxisAlignment,
       children: [
-        Pragma4HeadlineText(
+        Pragma4Text(
           sectionTitle,
           variant: Pragma4TextType.headlineSmall,
         ),
@@ -108,7 +108,7 @@ class DashboardMetricsGrid extends StatelessWidget {
               FittedBox(
                 fit: BoxFit.scaleDown,
                 alignment: Alignment.centerLeft,
-                child: Pragma4HeadlineText(
+                child: Pragma4Text(
                   metric.value,
                   variant: valueVariant,
                 ),
@@ -116,7 +116,7 @@ class DashboardMetricsGrid extends StatelessWidget {
               SizedBox(height: gapSmall()),
 
               // Título (con ellipsis y 1 línea si muy compacto)
-              Pragma4BodyText(
+              Pragma4Text(
                 metric.title,
                 variant: Pragma4TextType.bodySmall,
                 color: Pragma4Colors.onSurfaceVariant,
@@ -127,7 +127,7 @@ class DashboardMetricsGrid extends StatelessWidget {
               // Subtítulo opcional (se oculta si el alto es muy limitado)
               if (metric.hasSubtitle && !veryCompact) ...[
                 SizedBox(height: gapSmall()),
-                Pragma4BodyText(
+                Pragma4Text(
                   metric.subtitle!,
                   variant: Pragma4TextType.labelSmall,
                   semanticColor: Pragma4ComponentColor.muted,

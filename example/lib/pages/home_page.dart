@@ -19,7 +19,7 @@ class HomePage extends StatelessWidget {
             children: [
               const SizedBox(height: 32),
               const Center(
-                child: Pragma4HeadlineText(
+                child: Pragma4Text(
                   'Sistema de Diseño Flutter',
                   variant: Pragma4TextType.headlineLarge,
                   textAlign: TextAlign.center,
@@ -27,21 +27,23 @@ class HomePage extends StatelessWidget {
               ),
               const SizedBox(height: 8),
               Center(
-                child: Pragma4BodyText(
+                child: Pragma4Text(
                   'Sistema basado en Atomic Design con páginas reutilizables y demostraciones',
                   color: Theme.of(context).colorScheme.onSurface,
                   textAlign: TextAlign.center,
+                  variant: Pragma4TextType.bodyMedium,
                 ),
               ),
               const SizedBox(height: 32),
-              const Pragma4HeadlineText(
+              const Pragma4Text(
                 'Páginas Reutilizables',
                 variant: Pragma4TextType.headlineMedium,
               ),
               const SizedBox(height: 8),
-              Pragma4BodyText(
+              Pragma4Text(
                 'Estas páginas están incluidas en el paquete y pueden ser reutilizadas en cualquier aplicación:',
                 color: Theme.of(context).colorScheme.onSurface,
+                variant: Pragma4TextType.bodyMedium,
               ),
               const SizedBox(height: 24),
               PageCard(
@@ -57,14 +59,15 @@ class HomePage extends StatelessWidget {
                 route: AppRoutes.dashboard,
               ),
               const SizedBox(height: 24),
-              const Pragma4HeadlineText(
+              const Pragma4Text(
                 'Páginas de Demostración',
                 variant: Pragma4TextType.headlineSmall,
               ),
               const SizedBox(height: 8),
-              Pragma4BodyText(
+              Pragma4Text(
                 'Estas páginas están en el ejemplo y muestran cómo usar los componentes:',
                 color: Theme.of(context).colorScheme.onSurface,
+                variant: Pragma4TextType.bodyMedium,
               ),
               const SizedBox(height: 16),
               PageCard(

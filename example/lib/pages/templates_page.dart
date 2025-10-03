@@ -32,7 +32,10 @@ class TemplatesPage extends StatelessWidget {
               child: design.Pragma4AppLayout(
                 appBar: const design.Pragma4AppHeader(title: 'Título'),
                 body: const Center(
-                  child: design.Pragma4BodyText('Contenido principal'),
+                  child: design.Pragma4Text(
+                    'Contenido principal',
+                    variant: design.Pragma4TextType.bodyMedium,
+                  ),
                 ),
               ),
             ),
@@ -67,7 +70,10 @@ class TemplatesPage extends StatelessWidget {
                 ),
                 content: const Padding(
                   padding: EdgeInsets.all(16),
-                  child: design.Pragma4BodyText('Contenido del dashboard...'),
+                  child: design.Pragma4Text(
+                    'Contenido del dashboard...',
+                    variant: design.Pragma4TextType.bodyMedium,
+                  ),
                 ),
               ),
             ),

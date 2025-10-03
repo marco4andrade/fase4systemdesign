@@ -28,7 +28,7 @@ class LoginFormHeader extends StatelessWidget {
         ],
 
         // Título
-        Pragma4HeadlineText(
+        Pragma4Text(
           title,
           variant: Pragma4TextType.headlineLarge,
           textAlign: LoginPageStyles.centerTextAlign,
@@ -37,7 +37,7 @@ class LoginFormHeader extends StatelessWidget {
         const SizedBox(height: LoginPageStyles.titleSpacing),
         
         // Subtítulo
-        Pragma4BodyText(
+        Pragma4Text(
           subtitle,
           variant: Pragma4TextType.bodyLarge,
           textAlign: LoginPageStyles.centerTextAlign,

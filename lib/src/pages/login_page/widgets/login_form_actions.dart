@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../atoms/atoms.dart';
 import '../../../theme/app_colors.dart';
+import '../../../enums/enums.dart';
 import '../models/login_form_data.dart';
 import '../styles/login_page_styles.dart';
 
@@ -37,11 +38,12 @@ class LoginFormActions extends StatelessWidget {
           Row(
             mainAxisAlignment: LoginPageStyles.centerAlignment,
             children: [
-              const Pragma4BodyText('¿No tienes cuenta? '),
+              const Pragma4Text('¿No tienes cuenta? ', variant: Pragma4TextType.bodyMedium),
               TextButton(
                 onPressed: onSignUp,
-                child: const Pragma4BodyText(
+                child: const Pragma4Text(
                   'Regístrate',
+                  variant: Pragma4TextType.bodyMedium,
                   color: Pragma4Colors.primary,
                 ),
               ),

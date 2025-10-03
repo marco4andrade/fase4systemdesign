@@ -79,63 +79,70 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: widget.backgroundColor ?? Pragma4Colors.background,
-      body: SafeArea(
-        child: Center(
-          child: SingleChildScrollView(
-            padding: const EdgeInsets.all(LoginPageStyles.mainPadding),
-            child: ConstrainedBox(
-              constraints: LoginPageStyles.formConstraints,
-              child: Form(
-                key: _formKey,
-                child: Column(
-                  mainAxisAlignment: LoginPageStyles.centerAlignment,
-                  crossAxisAlignment: LoginPageStyles.stretchAlignment,
-                  children: [
-                    // Header con logo, título y subtítulo
-                    LoginFormHeader(
-                      title: widget.title,
-                      subtitle: widget.subtitle,
-                      logoWidget: widget.logoWidget,
-                    ),
-                    
-                    const SizedBox(height: LoginPageStyles.sectionSpacing),
-                    
-                    // Campos del formulario
-                    LoginFormFields(
-                      emailController: _emailController,
-                      passwordController: _passwordController,
-                      formData: _formData,
-                      onPasswordVisibilityToggle: _handlePasswordVisibilityToggle,
-                    ),
-                    
-                    const SizedBox(height: LoginPageStyles.fieldSpacing),
-                    
-                    // Opciones: Remember me y Forgot password
-                    LoginFormOptions(
-                      formData: _formData,
-                      onRememberMeChanged: _handleRememberMeChanged,
-                      showRememberMe: widget.showRememberMe,
-                      onForgotPassword: widget.onForgotPassword,
-                    ),
-                    
-                    const SizedBox(height: LoginPageStyles.sectionSpacing),
-                    
-                    // Acciones: Login button y Sign up
-                    LoginFormActions(
-                      formData: _formData,
-                      onLogin: _handleLogin,
-                      showSignUpOption: widget.showSignUpOption,
-                      onSignUp: widget.onSignUp,
-                    ),
-                  ],
-                ),
+    final bool hasAncestorScaffold = Scaffold.maybeOf(context) != null;
+
+    Widget formContent = SafeArea(
+      child: Center(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(LoginPageStyles.mainPadding),
+          child: ConstrainedBox(
+            constraints: LoginPageStyles.formConstraints,
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisAlignment: LoginPageStyles.centerAlignment,
+                crossAxisAlignment: LoginPageStyles.stretchAlignment,
+                children: [
+                  // Header con logo, título y subtítulo
+                  LoginFormHeader(
+                    title: widget.title,
+                    subtitle: widget.subtitle,
+                    logoWidget: widget.logoWidget,
+                  ),
+                  const SizedBox(height: LoginPageStyles.sectionSpacing),
+                  // Campos del formulario
+                  LoginFormFields(
+                    emailController: _emailController,
+                    passwordController: _passwordController,
+                    formData: _formData,
+                    onPasswordVisibilityToggle: _handlePasswordVisibilityToggle,
+                  ),
+                  const SizedBox(height: LoginPageStyles.fieldSpacing),
+                  // Opciones: Remember me y Forgot password
+                  LoginFormOptions(
+                    formData: _formData,
+                    onRememberMeChanged: _handleRememberMeChanged,
+                    showRememberMe: widget.showRememberMe,
+                    onForgotPassword: widget.onForgotPassword,
+                  ),
+                  const SizedBox(height: LoginPageStyles.sectionSpacing),
+                  // Acciones: Login button y Sign up
+                  LoginFormActions(
+                    formData: _formData,
+                    onLogin: _handleLogin,
+                    showSignUpOption: widget.showSignUpOption,
+                    onSignUp: widget.onSignUp,
+                  ),
+                ],
               ),
             ),
           ),
         ),
       ),
+    );
+
+    // Si ya existe un Scaffold ancestro (ej. dentro de un preview / card), evitamos crear otro
+    if (hasAncestorScaffold) {
+      return Container(
+        color: widget.backgroundColor ?? Pragma4Colors.background,
+        alignment: Alignment.topCenter,
+        child: formContent,
+      );
+    }
+
+    return Scaffold(
+      backgroundColor: widget.backgroundColor ?? Pragma4Colors.background,
+      body: formContent,
     );
   }
 }
