@@ -43,7 +43,32 @@ class _LoginPageState extends State<LoginPage> {
   LoginFormData _formData = const LoginFormData();
 
   @override
+  void initState() {
+    super.initState();
+    // Escuchamos cambios en los campos para actualizar el estado y que el botón
+    // de 'Iniciar Sesión' reaccione (habilitado/deshabilitado) correctamente.
+    _emailController.addListener(_syncFormFieldsToState);
+    _passwordController.addListener(_syncFormFieldsToState);
+  }
+
+  void _syncFormFieldsToState() {
+    final updatedEmail = _emailController.text;
+    final updatedPassword = _passwordController.text;
+    // Solo hacemos setState si realmente cambió algo para evitar renders extra.
+    if (updatedEmail != _formData.email || updatedPassword != _formData.password) {
+      setState(() {
+        _formData = _formData.copyWith(
+          email: updatedEmail,
+          password: updatedPassword,
+        );
+      });
+    }
+  }
+
+  @override
   void dispose() {
+    _emailController.removeListener(_syncFormFieldsToState);
+    _passwordController.removeListener(_syncFormFieldsToState);
     _emailController.dispose();
     _passwordController.dispose();
     super.dispose();
