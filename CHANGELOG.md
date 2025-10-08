@@ -1,3 +1,16 @@
+## 1.1.1
+
+Corrección menor enfocada en la experiencia de usuario del formulario de login.
+
+### Fix
+- Se solucionó que el botón "Iniciar Sesión" no se habilitaba / deshabilitaba al completar los campos. El estado no reaccionaba porque `LoginFormData` no se actualizaba con los cambios en los `TextEditingController`. Ahora se añadieron listeners en `initState` que sincronizan email y password con el estado interno, permitiendo que `canSubmit` funcione correctamente y el botón refleje además el estado de loading.
+
+### Notas
+- Sin cambios breaking.
+- Mantiene compatibilidad con la versión 1.1.0; solo mejora de comportamiento.
+
+---
+
 ## 1.1.0
 
 Refactor estructural y mejoras internas del paquete sin romper compatibilidad mayor:
