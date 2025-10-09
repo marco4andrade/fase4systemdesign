@@ -1,14 +1,29 @@
+## 1.2.0
+
+Lanzamiento menor que incorpora nuevas capacidades en la página de login.
+
+### Feat
+- Campo de acceso flexible: ahora soporta "Usuario o correo" con validación dual (username o email válido).
+- Diálogo de registro integrado (aparece al pulsar "Regístrate" si no se provee `onSignUp`), capturando `username`, `email` y `password` y exponiendo el callback `onSignUpSubmit`.
+- Nuevo validador `usernameValidator` para flujos de alta.
+
+### Calidad / DX
+- API de `LoginPage` ampliada con `onSignUpSubmit` sin introducir breaking changes.
+
+### Compatibilidad
+- No hay cambios breaking; proyectos en 1.1.x pueden actualizar directamente.
+
+---
+
 ## 1.1.1
 
-Corrección menor enfocada en la experiencia de usuario del formulario de login y flexibilización del campo de acceso.
+Corrección menor enfocada en la experiencia de usuario del formulario de login.
 
 ### Fix
 - Se solucionó que el botón "Iniciar Sesión" no se habilitaba / deshabilitaba al completar los campos. El estado no reaccionaba porque `LoginFormData` no se actualizaba con los cambios en los `TextEditingController`. Ahora se añadieron listeners en `initState` que sincronizan email y password con el estado interno, permitiendo que `canSubmit` funcione correctamente y el botón refleje además el estado de loading.
 
-- El campo de correo ahora acepta también nombre de usuario: se renombró a "Usuario o correo" y se añadió un validador que permite introducir un email válido o un username alfanumérico (con `_` y `.`) entre 3 y 30 caracteres.
-
-### Feat
-- Se añadió un diálogo de registro accesible desde el enlace "Regístrate" (si no se proporciona un callback `onSignUp`). Este formulario permite capturar `username`, `email` y `password` (el `id` queda fuera porque lo gestiona el backend). Se expone además el callback `onSignUpSubmit` con un objeto de datos para integraciones.
+### Nota
+- Las funcionalidades nuevas listadas ahora en 1.2.0 fueron introducidas después del fix pero antes del corte formal de versión; se reorganiza el changelog para mantener semántica (fix en patch, features en minor).
 
 ### Notas
 - Sin cambios breaking.
