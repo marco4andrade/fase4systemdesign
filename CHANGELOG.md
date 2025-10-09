@@ -1,9 +1,14 @@
 ## 1.1.1
 
-Corrección menor enfocada en la experiencia de usuario del formulario de login.
+Corrección menor enfocada en la experiencia de usuario del formulario de login y flexibilización del campo de acceso.
 
 ### Fix
 - Se solucionó que el botón "Iniciar Sesión" no se habilitaba / deshabilitaba al completar los campos. El estado no reaccionaba porque `LoginFormData` no se actualizaba con los cambios en los `TextEditingController`. Ahora se añadieron listeners en `initState` que sincronizan email y password con el estado interno, permitiendo que `canSubmit` funcione correctamente y el botón refleje además el estado de loading.
+
+- El campo de correo ahora acepta también nombre de usuario: se renombró a "Usuario o correo" y se añadió un validador que permite introducir un email válido o un username alfanumérico (con `_` y `.`) entre 3 y 30 caracteres.
+
+### Feat
+- Se añadió un diálogo de registro accesible desde el enlace "Regístrate" (si no se proporciona un callback `onSignUp`). Este formulario permite capturar `username`, `email` y `password` (el `id` queda fuera porque lo gestiona el backend). Se expone además el callback `onSignUpSubmit` con un objeto de datos para integraciones.
 
 ### Notas
 - Sin cambios breaking.

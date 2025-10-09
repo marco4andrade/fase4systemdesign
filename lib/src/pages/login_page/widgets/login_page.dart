@@ -6,6 +6,7 @@ import 'login_form_header.dart';
 import 'login_form_fields.dart';
 import 'login_form_options.dart';
 import 'login_form_actions.dart';
+import 'signup_dialog.dart';
 
 /// Página de login reutilizable y modularizada
 class LoginPage extends StatefulWidget {
@@ -14,6 +15,7 @@ class LoginPage extends StatefulWidget {
     this.onLogin,
     this.onForgotPassword,
     this.onSignUp,
+    this.onSignUpSubmit,
     this.title = 'Iniciar Sesión',
     this.subtitle = 'Bienvenido de vuelta',
     this.showRememberMe = true,
@@ -25,6 +27,8 @@ class LoginPage extends StatefulWidget {
   final void Function(String email, String password, bool rememberMe)? onLogin;
   final VoidCallback? onForgotPassword;
   final VoidCallback? onSignUp;
+  // Callback con datos del diálogo de registro (username, email, password)
+  final OnSignUpSubmit? onSignUpSubmit;
   final String title;
   final String subtitle;
   final bool showRememberMe;
@@ -147,6 +151,7 @@ class _LoginPageState extends State<LoginPage> {
                     onLogin: _handleLogin,
                     showSignUpOption: widget.showSignUpOption,
                     onSignUp: widget.onSignUp,
+                    onSignUpSubmit: widget.onSignUpSubmit,
                   ),
                 ],
               ),

@@ -49,4 +49,35 @@ class LoginValidators {
     
     return null;
   }
+
+  /// Nuevo: Valida que el campo sea un correo válido o un username.
+  /// Reglas de username simples: 3-30 chars, letras, números, guion bajo o punto, no iniciar con punto.
+  static String? usernameOrEmailValidator(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Ingresa tu usuario o correo';
+    }
+    final input = value.trim();
+    final emailRegex = RegExp(r'^[\w\-\.]+@([\w\-]+\.)+[\w\-]{2,}$');
+    final usernameRegex = RegExp(r'^(?!\.)([A-Za-z0-9](?:[A-Za-z0-9_.]{1,28}[A-Za-z0-9])?)$');
+    if (emailRegex.hasMatch(input) || usernameRegex.hasMatch(input)) {
+      return null;
+    }
+    return 'Ingresa un usuario (letras, números, _ .) o un correo válido';
+  }
+
+  /// Validador específico de username (para formulario de registro)
+  /// Reglas: 3-30 caracteres alfanuméricos, permite _ y ., no empieza con punto.
+  static String? usernameValidator(String? value) {
+    if (value == null || value.trim().isEmpty) {
+      return 'Ingresa un nombre de usuario';
+    }
+    final input = value.trim();
+    if (input.length < 3) return 'Mínimo 3 caracteres';
+    if (input.length > 30) return 'Máximo 30 caracteres';
+    final usernameRegex = RegExp(r'^(?!\.)([A-Za-z0-9](?:[A-Za-z0-9_.]{1,28}[A-Za-z0-9])?)$');
+    if (!usernameRegex.hasMatch(input)) {
+      return 'Solo letras, números, _ y . (no iniciar con .)';
+    }
+    return null;
+  }
 }

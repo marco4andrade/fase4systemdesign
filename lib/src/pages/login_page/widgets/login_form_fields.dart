@@ -23,17 +23,16 @@ class LoginFormFields extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        // Campo de correo electrónico
+        // Campo de usuario o correo electrónico
         Pragma4InputField(
           controller: emailController,
-          labelText: 'Correo electrónico',
-          hintText: 'Ingresa tu correo',
+          labelText: 'Usuario o correo',
+          hintText: 'Ingresa tu usuario o correo',
           keyboardType: LoginPageStyles.emailKeyboardType,
-          validator: LoginValidators.emailValidator,
+          // Nueva validación flexible: permite username simple o email válido
+          validator: LoginValidators.usernameOrEmailValidator,
         ),
-        
         const SizedBox(height: LoginPageStyles.fieldSpacing),
-        
         // Campo de contraseña
         Pragma4InputField(
           controller: passwordController,

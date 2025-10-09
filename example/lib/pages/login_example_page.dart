@@ -40,9 +40,10 @@ class LoginExamplePage extends StatelessWidget {
             const SnackBar(content: Text('Recuperar contraseña')),
           );
         },
-        onSignUp: () {
+        // onSignUp: callback manual opcional si se quiere sobreescribir el diálogo
+        onSignUpSubmit: (data) {
           ScaffoldMessenger.of(context).showSnackBar(
-            const SnackBar(content: Text('Ir a registro')),
+            SnackBar(content: Text('Nuevo usuario: ${data.username} • ${data.email}')),
           );
         },
       ),

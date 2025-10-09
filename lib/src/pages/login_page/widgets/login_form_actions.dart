@@ -4,6 +4,7 @@ import '../../../theme/app_colors.dart';
 import '../../../enums/enums.dart';
 import '../models/login_form_data.dart';
 import '../styles/login_page_styles.dart';
+import 'signup_dialog.dart';
 
 /// Acciones del formulario: botón de login y opción de registro
 class LoginFormActions extends StatelessWidget {
@@ -13,12 +14,25 @@ class LoginFormActions extends StatelessWidget {
     required this.onLogin,
     required this.showSignUpOption,
     this.onSignUp,
+    this.onSignUpSubmit,
   });
 
   final LoginFormData formData;
   final VoidCallback onLogin;
   final bool showSignUpOption;
   final VoidCallback? onSignUp;
+  final OnSignUpSubmit? onSignUpSubmit;
+
+  void _defaultOpenSignUp(BuildContext context) {
+    showDialog(
+      context: context,
+      builder: (_) => SignUpDialog(
+        onSubmit: (data) {
+          onSignUpSubmit?.call(data);
+        },
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +54,9 @@ class LoginFormActions extends StatelessWidget {
             children: [
               const Pragma4Text('¿No tienes cuenta? ', variant: Pragma4TextType.bodyMedium),
               TextButton(
-                onPressed: onSignUp,
+                onPressed: () => onSignUp != null
+                    ? onSignUp!()
+                    : _defaultOpenSignUp(context),
                 child: const Pragma4Text(
                   'Regístrate',
                   variant: Pragma4TextType.bodyMedium,
